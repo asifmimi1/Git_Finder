@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xIo-gu-wyO">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Git Finder-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="BaseViewController" customModule="Git_Finder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-1Z-2kH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepoCellTVC" rowHeight="102" id="3hr-UD-5iD" customClass="RepoCellTVC" customModule="Git_Finder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="375" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3hr-UD-5iD" id="7H7-vP-84q">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Angela" translatesAutoresizingMaskIntoConstraints="NO" id="WKz-vL-9gS">
+                                                    <rect key="frame" x="16" y="11" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="Hj2-Ph-NXp"/>
+                                                        <constraint firstAttribute="height" constant="80" id="O8H-VG-zfI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IQ-pM-3ph">
+                                                    <rect key="frame" x="104" y="26" width="247" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="IU2-e6-aaC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtt-lk-5Wh">
+                                                    <rect key="frame" x="104" y="56" width="247" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="Lia-5I-YTp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WKz-vL-9gS" firstAttribute="leading" secondItem="7H7-vP-84q" secondAttribute="leading" constant="16" id="0YH-bX-23V"/>
+                                                <constraint firstItem="Xtt-lk-5Wh" firstAttribute="top" secondItem="4IQ-pM-3ph" secondAttribute="bottom" constant="8" symbolic="YES" id="6FX-Rc-Z4Q"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Xtt-lk-5Wh" secondAttribute="trailing" constant="8" id="850-Z8-bJV"/>
+                                                <constraint firstAttribute="bottom" secondItem="WKz-vL-9gS" secondAttribute="bottom" constant="11" id="Dc9-Rv-Cbg"/>
+                                                <constraint firstItem="4IQ-pM-3ph" firstAttribute="leading" secondItem="WKz-vL-9gS" secondAttribute="trailing" constant="8" symbolic="YES" id="PhW-fT-RnA"/>
+                                                <constraint firstItem="4IQ-pM-3ph" firstAttribute="top" secondItem="7H7-vP-84q" secondAttribute="topMargin" constant="15" id="YhN-cc-5lh"/>
+                                                <constraint firstItem="WKz-vL-9gS" firstAttribute="top" secondItem="7H7-vP-84q" secondAttribute="top" constant="11" id="jFQ-WR-VhN"/>
+                                                <constraint firstItem="Xtt-lk-5Wh" firstAttribute="leading" secondItem="WKz-vL-9gS" secondAttribute="trailing" constant="8" symbolic="YES" id="pu8-yu-Jrg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4IQ-pM-3ph" secondAttribute="trailing" constant="8" id="r2x-6j-fu4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLbl" destination="4IQ-pM-3ph" id="Z2A-9m-k9m"/>
+                                            <outlet property="profileImg" destination="WKz-vL-9gS" id="tkv-nS-PEh"/>
+                                            <outlet property="repoUrlLbl" destination="Xtt-lk-5Wh" id="DWI-Tu-0th"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="fX1-Ns-yHS"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ipp-Nx-83T"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xqr-1Z-2kH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3MD-ue-9eN"/>
+                            <constraint firstItem="xqr-1Z-2kH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3vr-yo-b6r"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xqr-1Z-2kH" secondAttribute="bottom" id="AWj-hU-qqu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xqr-1Z-2kH" secondAttribute="trailing" id="goM-WD-kRi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Git Finder" id="q3E-6P-tdW">
+                        <barButtonItem key="leftBarButtonItem" systemItem="play" id="5gB-4v-rMK">
+                            <connections>
+                                <action selector="crashButtonTapped:" destination="BYZ-38-t0r" id="5c9-PS-idH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="gitFinderTableView" destination="xqr-1Z-2kH" id="AuB-f4-fwu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-292" y="-64"/>
+        </scene>
+        <!--Firework VideoVC-->
+        <scene sceneID="gNE-yS-N3G">
+            <objects>
+                <viewController storyboardIdentifier="FireworkVideoVC" id="DOt-62-MHb" customClass="FireworkVideoVC" customModule="Git_Finder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZPN-Fn-vEs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Mcw-e0-4or"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hYU-mW-Jzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="342" y="-64"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="v5C-Ik-ggo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xIo-gu-wyO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W5J-N6-Lzt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Fex-xX-jXo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dtO-2P-wfH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-993" y="-64"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Angela" width="200" height="200"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
