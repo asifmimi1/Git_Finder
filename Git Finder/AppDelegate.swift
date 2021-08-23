@@ -8,7 +8,7 @@
 import UIKit
 import FBSDKCoreKit
 import Firebase
-import FacebookCore
+//import FacebookCore
 import FirebaseStorage
 import FireworkVideo
 
@@ -52,5 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             annotation: [UIApplication.OpenURLOptionsKey.annotation]
         )
     }
+        
 
 }

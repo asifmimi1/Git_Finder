@@ -19,7 +19,7 @@
 		01F747E226B9896E00A28CF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F747E026B9896E00A28CF8 /* LaunchScreen.storyboard */; };
 		01F747F126B98A4C00A28CF8 /* RepoCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F747F026B98A4C00A28CF8 /* RepoCellTVC.swift */; };
 		01F747F526B98AA900A28CF8 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F747F426B98AA900A28CF8 /* DataModel.swift */; };
-		7C78AC6B67F38166D903750C /* Pods_Git_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E4F7F85E9F7D01899E73E0 /* Pods_Git_Finder.framework */; };
+		862244F1CF72B8C3BD97FAA9 /* Pods_Git_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483F123FFBCEF4DBCEFEAC55 /* Pods_Git_Finder.framework */; };
 		B1780D2B26D222A600E865A0 /* FireworkVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1780D2A26D222A600E865A0 /* FireworkVideoVC.swift */; };
 		B1780D2D26D24B9300E865A0 /* VideoFeedLayoutTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1780D2C26D24B9300E865A0 /* VideoFeedLayoutTypes.swift */; };
 /* End PBXBuildFile section */
@@ -36,11 +36,11 @@
 		01F747E326B9896E00A28CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01F747F026B98A4C00A28CF8 /* RepoCellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellTVC.swift; sourceTree = "<group>"; };
 		01F747F426B98AA900A28CF8 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		692A9459ED30E5D2908FF2C2 /* Pods-Git Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.debug.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.debug.xcconfig"; sourceTree = "<group>"; };
+		2F89817E914726F503EB91A0 /* Pods-Git Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.debug.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.debug.xcconfig"; sourceTree = "<group>"; };
+		483F123FFBCEF4DBCEFEAC55 /* Pods_Git_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Git_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F1DACA6CEBDD1242FF68CFF /* Pods-Git Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.release.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.release.xcconfig"; sourceTree = "<group>"; };
 		B1780D2A26D222A600E865A0 /* FireworkVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworkVideoVC.swift; sourceTree = "<group>"; };
 		B1780D2C26D24B9300E865A0 /* VideoFeedLayoutTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFeedLayoutTypes.swift; sourceTree = "<group>"; };
-		E3E4F7F85E9F7D01899E73E0 /* Pods_Git_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Git_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6E310B5EC7E7521A4094C9B /* Pods-Git Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.release.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 				0149284C26C41804009A12B8 /* FacebookCore in Frameworks */,
 				0149285026C41804009A12B8 /* FacebookShare in Frameworks */,
 				0149284E26C41804009A12B8 /* FacebookLogin in Frameworks */,
-				7C78AC6B67F38166D903750C /* Pods_Git_Finder.framework in Frameworks */,
+				862244F1CF72B8C3BD97FAA9 /* Pods_Git_Finder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +64,7 @@
 				01F747D426B9896900A28CF8 /* Git Finder */,
 				01F747D326B9896900A28CF8 /* Products */,
 				44BFA086D050575873BC4CE3 /* Pods */,
-				E2AFF29D73624E90BBE4B0AD /* Frameworks */,
+				26E1BD93506EC060CED7714B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,21 +135,21 @@
 			name = Delegates;
 			sourceTree = "<group>";
 		};
+		26E1BD93506EC060CED7714B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				483F123FFBCEF4DBCEFEAC55 /* Pods_Git_Finder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		44BFA086D050575873BC4CE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				692A9459ED30E5D2908FF2C2 /* Pods-Git Finder.debug.xcconfig */,
-				F6E310B5EC7E7521A4094C9B /* Pods-Git Finder.release.xcconfig */,
+				2F89817E914726F503EB91A0 /* Pods-Git Finder.debug.xcconfig */,
+				7F1DACA6CEBDD1242FF68CFF /* Pods-Git Finder.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		E2AFF29D73624E90BBE4B0AD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E3E4F7F85E9F7D01899E73E0 /* Pods_Git_Finder.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,12 +159,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01F747E626B9896E00A28CF8 /* Build configuration list for PBXNativeTarget "Git Finder" */;
 			buildPhases = (
-				C854CD2D4526C502354B277B /* [CP] Check Pods Manifest.lock */,
+				98CDB7448D3B8264CBA11CFB /* [CP] Check Pods Manifest.lock */,
 				01F747CE26B9896900A28CF8 /* Sources */,
 				01F747CF26B9896900A28CF8 /* Frameworks */,
 				01F747D026B9896900A28CF8 /* Resources */,
 				01120E5926BAFACF0009646D /* ShellScript */,
-				C3B857E98DAE74ED97EB0570 /* [CP] Embed Pods Frameworks */,
+				D1C3D4783AE1BAE2B1BDF49A /* [CP] Embed Pods Frameworks */,
+				B193B81026D3C78F00399187 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -250,24 +251,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		C3B857E98DAE74ED97EB0570 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C854CD2D4526C502354B277B /* [CP] Check Pods Manifest.lock */ = {
+		98CDB7448D3B8264CBA11CFB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -287,6 +271,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B193B81026D3C78F00399187 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/newInputFile",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		D1C3D4783AE1BAE2B1BDF49A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -446,13 +466,14 @@
 		};
 		01F747E726B9896E00A28CF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 692A9459ED30E5D2908FF2C2 /* Pods-Git Finder.debug.xcconfig */;
+			baseConfigurationReference = 2F89817E914726F503EB91A0 /* Pods-Git Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = N47NT3K6N8;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Git Finder/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,13 +489,14 @@
 		};
 		01F747E826B9896E00A28CF8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6E310B5EC7E7521A4094C9B /* Pods-Git Finder.release.xcconfig */;
+			baseConfigurationReference = 7F1DACA6CEBDD1242FF68CFF /* Pods-Git Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = N47NT3K6N8;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Git Finder/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (

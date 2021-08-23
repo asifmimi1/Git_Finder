@@ -3,6 +3,28 @@ PODS:
   - BlueCryptor (1.0.32)
   - BlueECC (1.2.5)
   - BlueRSA (1.0.34)
+  - FBAEMKit (11.1.0):
+    - FBAEMKit/AEM (= 11.1.0)
+  - FBAEMKit/AEM (11.1.0):
+    - FBSDKCoreKit_Basics (~> 11.1.0)
+  - FBSDKCoreKit (11.1.0):
+    - FBSDKCoreKit/Core (= 11.1.0)
+  - FBSDKCoreKit/Core (11.1.0):
+    - FBAEMKit (~> 11.1.0)
+    - FBSDKCoreKit_Basics (~> 11.1.0)
+  - FBSDKCoreKit_Basics (11.1.0):
+    - FBSDKCoreKit_Basics/Basics (= 11.1.0)
+  - FBSDKCoreKit_Basics/Basics (11.1.0)
+  - FBSDKLoginKit (11.1.0):
+    - FBSDKLoginKit/Login (= 11.1.0)
+  - FBSDKLoginKit/Login (11.1.0):
+    - FBSDKCoreKit (~> 11.1.0)
+    - FBSDKCoreKit_Basics (~> 11.1.0)
+  - FBSDKShareKit (11.1.0):
+    - FBSDKShareKit/Share (= 11.1.0)
+  - FBSDKShareKit/Share (11.1.0):
+    - FBSDKCoreKit (~> 11.1.0)
+    - FBSDKCoreKit_Basics (~> 11.1.0)
   - Firebase/Analytics (8.6.0):
     - Firebase/Core
   - Firebase/Core (8.6.0):
@@ -127,6 +149,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
   - Firebase/Analytics
   - Firebase/Core
   - Firebase/Crashlytics
@@ -144,6 +169,11 @@ SPEC REPOS:
     - BlueCryptor
     - BlueECC
     - BlueRSA
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+    - FBSDKLoginKit
+    - FBSDKShareKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -173,6 +203,11 @@ SPEC CHECKSUMS:
   BlueCryptor: b0aee3d9b8f367b49b30de11cda90e1735571c24
   BlueECC: 0d18e93347d3ec6d41416de21c1ffa4d4cd3c2cc
   BlueRSA: 6f9776d62d9773502415a7db3bcbb2bbb3f71fc3
+  FBAEMKit: 5c8a8d08e5b2c79628490784883e0fcc75b12615
+  FBSDKCoreKit: 7ccb8b4bb2b5ee2ad94327b774dc23f03509675d
+  FBSDKCoreKit_Basics: 8f978bce195845f609b0ec6b425949d0d24f525b
+  FBSDKLoginKit: d65eb587a9eaa89295338fb0bb3b358bde0b7ae4
+  FBSDKShareKit: b2142706d3f2410fb0ea76ad5a63238c71307117
   Firebase: 21ac9f28b09a8bdfc005f34c984fca84e7e8786d
   FirebaseAnalytics: 8f32ae54ad42754f503354782575c4ddfc1425c3
   FirebaseCore: 620b677f70f5470a8e59cb77f3ddc666f6f09785
@@ -197,6 +232,6 @@ SPEC CHECKSUMS:
   SwiftJWT: 88c412708f58c169d431d344c87bc79a87c830ae
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 21da5d5c586b95291b918d884a3a82fc4d35e8ba
+PODFILE CHECKSUM: 25340cab3fb2c7d4c6c3e3a08fd558787af4e36e
 
 COCOAPODS: 1.10.2

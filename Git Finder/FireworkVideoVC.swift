@@ -8,116 +8,117 @@
 import UIKit
 import FireworkVideo
 
-class FireworkVideoVC: UIViewController {
+class VideoFeedCell: UITableViewCell {
+    static let reuseIdentifier = "VideoFeedCellReuseIdentifier"
     
-    var embeddedVideoFeedViewController : VideoFeedViewController!
-    var layoutPicker: UISegmentedControl!
+}
+
+class FireworkVideoVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var targetAction: SenderSuppliedTargetAction?
+    lazy var videoFeedViewController: VideoFeedViewController = self.configuredFeedViewController()
+    
+    lazy var tableView: UITableView = self.configureTableView()
+    var contentSource = VideoFeedContentSource.channelPlaylist(channelID: "4Y9XaK0", playlistID: "5aMPy5")
+    
+    //    @available(*, unavailable)
+    //    required init?(coder aDecoder: NSCoder) {
+    //        super.init(coder: aDecoder)
+    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.secondarySystemBackground
-        self.embeddedVideoFeedViewController = VideoFeedLayoutTypes.horizontalViewController
-        self.setupLayoutPicker()
+        self.view.backgroundColor = UIColor.systemBackground
+        self.setup()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setupVideoFeed(videoFeedViewController: self.embeddedVideoFeedViewController,
-                            fullHeight: false)
+    private func setup() {
+        self.view.addSubview(self.tableView)
+        self.view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: self.tableView.leadingAnchor).isActive = true
+        self.view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.tableView.trailingAnchor).isActive = true
+        self.view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: self.tableView.topAnchor).isActive = true
+        self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: self.tableView.bottomAnchor).isActive = true
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        self.removeVideoFeed(videoFeedViewController: self.embeddedVideoFeedViewController)
-        super.viewDidDisappear(animated)
+    
+    /// Only the horizontal layout supports embedding inside of UITableView
+    /// or UICollectionView.
+    private func configuredFeedViewController() -> VideoFeedViewController {
+        let viewController = VideoFeedViewController(source: self.contentSource)
+        let layout = VideoFeedHorizontalLayout()
+        layout.itemSpacing = 8
+        layout.contentInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        viewController.layout = layout
+        var config = viewController.viewConfiguration
+        config.backgroundColor = UIColor.clear
+        config.itemView.cornerRadius = 12
+        config.itemView.titleLayoutConfiguration.insets = UIEdgeInsets(top: -36, left: 6, bottom: 0, right: 4)
+        config.itemView.title.isHidden = false
+        config.itemView.title.font = UIFont.systemFont(ofSize: 12)
+        config.itemView.title.numberOfLines = 2
+        config.itemView.title.textColor = UIColor.white.withAlphaComponent(0.9)
+        config.itemView.titleLayoutConfiguration.titlePosition = .stacked
+        viewController.viewConfiguration = config
+        return viewController
     }
     
-    private func setupLayoutPicker() {
-        self.layoutPicker = UISegmentedControl()
+    private func configureTableView() -> UITableView {
+        let tableView = UITableView(frame: .zero, style: .grouped)
         
-        self.layoutPicker.insertSegment(withTitle: "Horizontal",
-                                        at: 0,
-                                        animated: false)
-        self.layoutPicker.insertSegment(withTitle: "Vertical",
-                                        at: 1,
-                                        animated: false)
-        self.layoutPicker.insertSegment(withTitle: "Grid",
-                                        at: 2,
-                                        animated: false)
-        self.layoutPicker.selectedSegmentIndex = 0
+        tableView.register(VideoFeedCell.self,
+                           forCellReuseIdentifier: VideoFeedCell.reuseIdentifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        let targetAction = SenderSuppliedTargetAction { sender in
-            if let segmentedControl = sender as? UISegmentedControl {
-                self.removeVideoFeed(videoFeedViewController: self.embeddedVideoFeedViewController)
-                
-                switch segmentedControl.selectedSegmentIndex {
-                case 0:
-                    self.embeddedVideoFeedViewController = VideoFeedLayoutTypes.horizontalViewController
-                    self.setupVideoFeed(videoFeedViewController: self.embeddedVideoFeedViewController,
-                                        fullHeight: false)
-                case 1:
-                    self.embeddedVideoFeedViewController = VideoFeedLayoutTypes.verticalViewController
-                    self.setupVideoFeed(videoFeedViewController: self.embeddedVideoFeedViewController)
-                case 2:
-                    self.embeddedVideoFeedViewController = VideoFeedLayoutTypes.gridViewController
-                    self.setupVideoFeed(videoFeedViewController: self.embeddedVideoFeedViewController)
-                default:
-                    break
-                }
-                
-                
-            }
-        }
-        self.layoutPicker.addTarget(targetAction,
-                                    action: #selector(SenderSuppliedTargetAction.performAction(_:)),
-                                    for: .valueChanged)
-        self.targetAction = targetAction
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        self.layoutPicker.tintColor = UIColor.secondarySystemGroupedBackground
-        self.layoutPicker.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(self.layoutPicker)
-        
-        self.layoutPicker.leadingAnchor.constraint(equalTo:self.view.safeAreaLayoutGuide.leadingAnchor,
-                                                   constant: 8.0).isActive = true
-        self.layoutPicker.trailingAnchor.constraint(equalTo:self.view.safeAreaLayoutGuide.trailingAnchor,
-                                                    constant: -8.0).isActive = true
-        self.layoutPicker.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,
-                                               constant: 20.0).isActive = true
+        return tableView
     }
     
-}
-
-
-extension UIViewController {
-    
-    func removeVideoFeed(videoFeedViewController: VideoFeedViewController) {
-        videoFeedViewController.willMove(toParent: nil)
-        videoFeedViewController.view.removeFromSuperview()
-        videoFeedViewController.removeFromParent()
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
     }
     
-    /// In addition to embedding the view feed, this method sets up constraints
-    func setupVideoFeed(videoFeedViewController: VideoFeedViewController,
-                        topSpacing: CGFloat = 80.0,
-                        fullHeight: Bool = true) {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        self.addChild(videoFeedViewController)
-        self.view.addSubview(videoFeedViewController.view)
-        videoFeedViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        videoFeedViewController.view.leadingAnchor.constraint(equalTo:self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        videoFeedViewController.view.trailingAnchor.constraint(equalTo:self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        videoFeedViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,
-                                                          constant: topSpacing).isActive = true
-        
-        if fullHeight {
-            videoFeedViewController.view.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor,
-                                                                 constant: -topSpacing).isActive = true
+        if indexPath.row == 0 {
+            let cell = UITableViewCell(style: .subtitle,reuseIdentifier: "")
+            cell.textLabel?.text = NSLocalizedString("Moments",comment: "")
+            return cell
         } else {
-            videoFeedViewController.view.heightAnchor.constraint(equalToConstant: 280.0).isActive = true
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: VideoFeedCell.reuseIdentifier,for: indexPath) as! VideoFeedCell
+            //            let newView = UIView(frame: CGRect(x: 300, y: 0, width: 110, height: 50))
+            //            newView.backgroundColor = .black.withAlphaComponent(0.9)
+            //            cell.addSubview(newView)
+            return cell
         }
-        
-        videoFeedViewController.didMove(toParent: self)
     }
-}
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+            self.addChild(self.videoFeedViewController)
+            cell.contentView.addSubview(videoFeedViewController.view)
+            
+            self.videoFeedViewController.view.translatesAutoresizingMaskIntoConstraints = false
+            
+            cell.contentView.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: videoFeedViewController.view.leadingAnchor).isActive = true
+            cell.contentView.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: videoFeedViewController.view.trailingAnchor).isActive = true
+            cell.contentView.safeAreaLayoutGuide.topAnchor.constraint(equalTo: videoFeedViewController.view.topAnchor).isActive = true
+            cell.contentView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: videoFeedViewController.view.bottomAnchor).isActive = true
+            
+            self.videoFeedViewController.willMove(toParent: self)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+            videoFeedViewController.willMove(toParent: nil)
+            videoFeedViewController.view.removeFromSuperview()
+            videoFeedViewController.removeFromParent()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return indexPath.row == 0 ? 75.0 : 280.0
+    }}

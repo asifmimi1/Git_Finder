@@ -14,6 +14,7 @@ import FirebaseStorage
 import Firebase
 import SVProgressHUD
 import FireworkVideo
+import FBSDKCoreKit
 
 
 class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -31,15 +32,17 @@ class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UI
 //        alamoFireRequest(requestURL: "https://api.github.com/users")
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(toggleEditing))
         navigationItem.rightBarButtonItem = editButton
+        AppEvents.logEvent(.viewedContent)
+        AppEvents.logEvent(AppEvents.Name(rawValue: "Test_Event"), parameters: ["test_event": "1"])
     }
     
     @IBAction func crashButtonTapped(_ sender: AnyObject) {
-        //                let numbers = [0]
-        //                let _ = numbers[1]
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.delegate = self
-        imagePickerController.mediaTypes = ["public.image", "public.movie"]
-        present(imagePickerController, animated: true, completion: nil)
+                        let numbers = [0]
+                        let _ = numbers[1]
+//        imagePickerController.sourceType = .photoLibrary
+//        imagePickerController.delegate = self
+//        imagePickerController.mediaTypes = ["public.image", "public.movie"]
+//        present(imagePickerController, animated: true, completion: nil)
     }
     
     // UIImagePickerController Delegate Method
@@ -156,16 +159,3 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-
-final class SenderSuppliedTargetAction {
-    typealias Handler = (AnyObject) -> ()
-    
-    let handler: Handler
-    
-    init(_ handler: @escaping Handler) {
-        self.handler = handler
-    }
-    @objc func performAction(_ sender: AnyObject) {
-        self.handler(sender)
-    }
-}

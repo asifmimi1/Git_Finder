@@ -20,7 +20,7 @@ class VideoFeedLayoutTypes {
         config.backgroundColor = UIColor.systemGray
         config.itemView.cornerRadius = 12
         config.itemView.titleLayoutConfiguration.insets = UIEdgeInsets(top: 10, left: 4, bottom: 0, right: 4)
-        config.itemView.title.isHidden = false
+        config.itemView.title.isHidden = true
         config.itemView.title.font = UIFont.preferredFont(forTextStyle: .body).withSize(12.0)
         config.itemView.title.numberOfLines = 2
         config.itemView.title.textColor = UIColor.white.withAlphaComponent(0.9)

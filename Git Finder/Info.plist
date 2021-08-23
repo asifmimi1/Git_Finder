@@ -3,22 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>FireworkVideoAppID</key>
-	<string>1499048052</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>893240477940024</string>
-			</array>
-		</dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>960ee5963ee10642020ebb049ec90476</string>
-	<key>FacebookClientToken</key>
-	<string>960ee5963ee10642020ebb049ec90476</string>
-	<key>FacebookDisplayName</key>
-	<string>Git-Finder</string>
+	<string>9e320da50f69212461fd9528a6b3e6f6758537187097720fe71cf0b3f867415d</string>
+	
+    
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>3019120898364691</string>
+      </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>3019120898364691</string>
+    <key>FacebookClientToken</key>
+    <string>72373fac8f4b7fc3fd9d413c37475ba3</string>
+    <key>FacebookDisplayName</key>
+    <string>Git_Finder</string>
+    
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -99,5 +102,25 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    
+    
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb3019120898364691</string>
+      </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>3019120898364691</string>
+    <key>FacebookDisplayName</key>
+    <string>Git Finder</string>
+    
+    
+    <key>FacebookAutoLogAppEventsEnabled</key>
+    <true/>
+    
 </dict>
 </plist>
