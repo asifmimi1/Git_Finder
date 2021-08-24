@@ -11,11 +11,11 @@ import SDWebImage
 import AVKit
 import AVFoundation
 import FirebaseStorage
-import Firebase
+import FirebaseCore
 import SVProgressHUD
 import FireworkVideo
 import FBSDKCoreKit
-
+import Firebase
 
 class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
@@ -32,8 +32,16 @@ class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UI
 //        alamoFireRequest(requestURL: "https://api.github.com/users")
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(toggleEditing))
         navigationItem.rightBarButtonItem = editButton
+        
+        //MARK: Facebook Events
         AppEvents.logEvent(.viewedContent)
         AppEvents.logEvent(AppEvents.Name(rawValue: "Test_Event"), parameters: ["test_event": "1"])
+        
+        //MARK: Firebase Events
+        Analytics.logEvent("xxxxxxxx", parameters: ["xxxxxxxx": "sdsdsdsd"])
+        
+//        let id = UIDevice.current.identifierForVendor?.uuidString
+//        print(id! as Any)
     }
     
     @IBAction func crashButtonTapped(_ sender: AnyObject) {
