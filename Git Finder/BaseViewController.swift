@@ -38,7 +38,10 @@ class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UI
         AppEvents.logEvent(AppEvents.Name(rawValue: "Test_Event"), parameters: ["test_event": "1"])
         
         //MARK: Firebase Events
-        Analytics.logEvent("xxxxxxxx", parameters: ["xxxxxxxx": "sdsdsdsd"])
+        let timestamp = NSDate().timeIntervalSince1970
+        let timeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(timeInterval))
+        Analytics.logEvent("Git Finder Launched", parameters: ["Time" : "\(time)"])
         
 //        let id = UIDevice.current.identifierForVendor?.uuidString
 //        print(id! as Any)
