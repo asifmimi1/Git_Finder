@@ -19,9 +19,11 @@
 		01F747E226B9896E00A28CF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F747E026B9896E00A28CF8 /* LaunchScreen.storyboard */; };
 		01F747F126B98A4C00A28CF8 /* RepoCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F747F026B98A4C00A28CF8 /* RepoCellTVC.swift */; };
 		01F747F526B98AA900A28CF8 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F747F426B98AA900A28CF8 /* DataModel.swift */; };
-		862244F1CF72B8C3BD97FAA9 /* Pods_Git_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483F123FFBCEF4DBCEFEAC55 /* Pods_Git_Finder.framework */; };
+		6A163B30CCE92D79BD2D6656 /* Pods_Git_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE28ED34A44B24DE04ACB46E /* Pods_Git_Finder.framework */; };
 		B1780D2B26D222A600E865A0 /* FireworkVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1780D2A26D222A600E865A0 /* FireworkVideoVC.swift */; };
 		B1780D2D26D24B9300E865A0 /* VideoFeedLayoutTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1780D2C26D24B9300E865A0 /* VideoFeedLayoutTypes.swift */; };
+		B19C57B626F3516C00355B8B /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C57B526F3516C00355B8B /* BalloonMarker.swift */; };
+		B1EB2D9D26F1F70300E850C1 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EB2D9C26F1F70300E850C1 /* LineChartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,11 +38,13 @@
 		01F747E326B9896E00A28CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01F747F026B98A4C00A28CF8 /* RepoCellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellTVC.swift; sourceTree = "<group>"; };
 		01F747F426B98AA900A28CF8 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		2F89817E914726F503EB91A0 /* Pods-Git Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.debug.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.debug.xcconfig"; sourceTree = "<group>"; };
-		483F123FFBCEF4DBCEFEAC55 /* Pods_Git_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Git_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F1DACA6CEBDD1242FF68CFF /* Pods-Git Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.release.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.release.xcconfig"; sourceTree = "<group>"; };
+		0EF0636032433DB0B3C66C14 /* Pods-Git Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.release.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.release.xcconfig"; sourceTree = "<group>"; };
+		2EF0894F916947A76853F0A0 /* Pods-Git Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.debug.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.debug.xcconfig"; sourceTree = "<group>"; };
 		B1780D2A26D222A600E865A0 /* FireworkVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworkVideoVC.swift; sourceTree = "<group>"; };
 		B1780D2C26D24B9300E865A0 /* VideoFeedLayoutTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFeedLayoutTypes.swift; sourceTree = "<group>"; };
+		B19C57B526F3516C00355B8B /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BalloonMarker.swift; path = ../../../BalloonMarker.swift; sourceTree = "<group>"; };
+		B1EB2D9C26F1F70300E850C1 /* LineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
+		DE28ED34A44B24DE04ACB46E /* Pods_Git_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Git_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +55,7 @@
 				0149284C26C41804009A12B8 /* FacebookCore in Frameworks */,
 				0149285026C41804009A12B8 /* FacebookShare in Frameworks */,
 				0149284E26C41804009A12B8 /* FacebookLogin in Frameworks */,
-				862244F1CF72B8C3BD97FAA9 /* Pods_Git_Finder.framework in Frameworks */,
+				6A163B30CCE92D79BD2D6656 /* Pods_Git_Finder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +68,7 @@
 				01F747D426B9896900A28CF8 /* Git Finder */,
 				01F747D326B9896900A28CF8 /* Products */,
 				44BFA086D050575873BC4CE3 /* Pods */,
-				26E1BD93506EC060CED7714B /* Frameworks */,
+				9DBCE5783F0D3D50C6E895B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +83,7 @@
 		01F747D426B9896900A28CF8 /* Git Finder */ = {
 			isa = PBXGroup;
 			children = (
+				B19C57B526F3516C00355B8B /* BalloonMarker.swift */,
 				01A8BF2226C2CF61006DFC32 /* GoogleService-Info.plist */,
 				01F747EE26B989BD00A28CF8 /* Delegates */,
 				01F747ED26B989B200A28CF8 /* Model */,
@@ -96,6 +101,7 @@
 			children = (
 				01F747D926B9896900A28CF8 /* BaseViewController.swift */,
 				B1780D2A26D222A600E865A0 /* FireworkVideoVC.swift */,
+				B1EB2D9C26F1F70300E850C1 /* LineChartViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -135,21 +141,21 @@
 			name = Delegates;
 			sourceTree = "<group>";
 		};
-		26E1BD93506EC060CED7714B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				483F123FFBCEF4DBCEFEAC55 /* Pods_Git_Finder.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		44BFA086D050575873BC4CE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2F89817E914726F503EB91A0 /* Pods-Git Finder.debug.xcconfig */,
-				7F1DACA6CEBDD1242FF68CFF /* Pods-Git Finder.release.xcconfig */,
+				2EF0894F916947A76853F0A0 /* Pods-Git Finder.debug.xcconfig */,
+				0EF0636032433DB0B3C66C14 /* Pods-Git Finder.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9DBCE5783F0D3D50C6E895B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE28ED34A44B24DE04ACB46E /* Pods_Git_Finder.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,13 +165,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01F747E626B9896E00A28CF8 /* Build configuration list for PBXNativeTarget "Git Finder" */;
 			buildPhases = (
-				98CDB7448D3B8264CBA11CFB /* [CP] Check Pods Manifest.lock */,
+				D82F7C14E517537DB2FB3164 /* [CP] Check Pods Manifest.lock */,
 				01F747CE26B9896900A28CF8 /* Sources */,
 				01F747CF26B9896900A28CF8 /* Frameworks */,
 				01F747D026B9896900A28CF8 /* Resources */,
 				01120E5926BAFACF0009646D /* ShellScript */,
-				D1C3D4783AE1BAE2B1BDF49A /* [CP] Embed Pods Frameworks */,
 				B193B81026D3C78F00399187 /* ShellScript */,
+				955EC96A82E6E3E2121889F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,26 +257,21 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		98CDB7448D3B8264CBA11CFB /* [CP] Check Pods Manifest.lock */ = {
+		955EC96A82E6E3E2121889F3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Git Finder-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B193B81026D3C78F00399187 /* ShellScript */ = {
@@ -292,21 +293,26 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		D1C3D4783AE1BAE2B1BDF49A /* [CP] Embed Pods Frameworks */ = {
+		D82F7C14E517537DB2FB3164 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Git Finder-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Git Finder/Pods-Git Finder-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -317,7 +323,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1780D2D26D24B9300E865A0 /* VideoFeedLayoutTypes.swift in Sources */,
+				B1EB2D9D26F1F70300E850C1 /* LineChartViewController.swift in Sources */,
 				01F747F526B98AA900A28CF8 /* DataModel.swift in Sources */,
+				B19C57B626F3516C00355B8B /* BalloonMarker.swift in Sources */,
 				B1780D2B26D222A600E865A0 /* FireworkVideoVC.swift in Sources */,
 				01F747DA26B9896900A28CF8 /* BaseViewController.swift in Sources */,
 				01F747D626B9896900A28CF8 /* AppDelegate.swift in Sources */,
@@ -466,7 +474,7 @@
 		};
 		01F747E726B9896E00A28CF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F89817E914726F503EB91A0 /* Pods-Git Finder.debug.xcconfig */;
+			baseConfigurationReference = 2EF0894F916947A76853F0A0 /* Pods-Git Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -489,7 +497,7 @@
 		};
 		01F747E826B9896E00A28CF8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F1DACA6CEBDD1242FF68CFF /* Pods-Git Finder.release.xcconfig */;
+			baseConfigurationReference = 0EF0636032433DB0B3C66C14 /* Pods-Git Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -3,6 +3,9 @@ PODS:
   - BlueCryptor (1.0.32)
   - BlueECC (1.2.5)
   - BlueRSA (1.0.34)
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - FBAEMKit (11.1.0):
     - FBAEMKit/AEM (= 11.1.0)
   - FBAEMKit/AEM (11.1.0):
@@ -146,9 +149,11 @@ PODS:
     - KituraContracts (~> 1.2)
     - LoggerAPI (~> 1.7)
   - SwiftyJSON (5.0.1)
+  - TinyConstraints (4.0.2)
 
 DEPENDENCIES:
   - Alamofire
+  - Charts
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -162,6 +167,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - SwiftJWT
   - SwiftyJSON
+  - TinyConstraints
 
 SPEC REPOS:
   trunk:
@@ -169,6 +175,7 @@ SPEC REPOS:
     - BlueCryptor
     - BlueECC
     - BlueRSA
+    - Charts
     - FBAEMKit
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
@@ -197,12 +204,14 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftJWT
     - SwiftyJSON
+    - TinyConstraints
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   BlueCryptor: b0aee3d9b8f367b49b30de11cda90e1735571c24
   BlueECC: 0d18e93347d3ec6d41416de21c1ffa4d4cd3c2cc
   BlueRSA: 6f9776d62d9773502415a7db3bcbb2bbb3f71fc3
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   FBAEMKit: 5c8a8d08e5b2c79628490784883e0fcc75b12615
   FBSDKCoreKit: 7ccb8b4bb2b5ee2ad94327b774dc23f03509675d
   FBSDKCoreKit_Basics: 8f978bce195845f609b0ec6b425949d0d24f525b
@@ -231,7 +240,8 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftJWT: 88c412708f58c169d431d344c87bc79a87c830ae
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
-PODFILE CHECKSUM: 25340cab3fb2c7d4c6c3e3a08fd558787af4e36e
+PODFILE CHECKSUM: 5e795843e263ebb682164d1064a9acec7746cc87
 
 COCOAPODS: 1.10.2

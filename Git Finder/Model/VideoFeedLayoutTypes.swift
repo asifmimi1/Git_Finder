@@ -1,9 +1,9 @@
-//
-//  VideoFeedLayoutTypes.swift
-//  Git Finder
-//
-//  Created by Asif Rabbi on 22/8/21.
-//
+////
+////  VideoFeedLayoutTypes.swift
+////  Git Finder
+////
+////  Created by Asif Rabbi on 22/8/21.
+////
 import UIKit
 import Foundation
 import FireworkVideo

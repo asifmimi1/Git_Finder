@@ -29,7 +29,7 @@ class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        alamoFireRequest(requestURL: "https://api.github.com/users")
+        alamoFireRequest(requestURL: "https://api.github.com/users")
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(toggleEditing))
         navigationItem.rightBarButtonItem = editButton
         

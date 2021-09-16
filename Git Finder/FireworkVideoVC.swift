@@ -80,7 +80,6 @@ class FireworkVideoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         if indexPath.row == 0 {
             let cell = UITableViewCell(style: .subtitle,reuseIdentifier: "")
             cell.textLabel?.text = NSLocalizedString("Moments",comment: "")
@@ -120,5 +119,7 @@ class FireworkVideoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == 0 ? 75.0 : 280.0
-    }}
+        return indexPath.row == 0 ? 100.0 : 200.0
+    }
+    
+}
