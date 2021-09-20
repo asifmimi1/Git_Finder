@@ -15,7 +15,8 @@
 // COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-//
+
+#import <Foundation/Foundation.h>
 
 #if SWIFT_PACKAGE
  #import "FBSDKAuthenticationToken.h"
@@ -23,10 +24,15 @@
  #import <FBSDKCoreKit/FBSDKAuthenticationToken.h>
 #endif
 
-#import "FBSDKCoreKit+Internal.h"
+@class FBSDKAuthenticationTokenClaims;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface FBSDKAuthenticationToken (Internal)
 
-+ (void)resetTokenCache;
+- (nullable FBSDKAuthenticationTokenClaims *)claims;
+- (NSString *)jti;
 
 @end
+
+NS_ASSUME_NONNULL_END

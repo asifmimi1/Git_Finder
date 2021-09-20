@@ -24,19 +24,16 @@
 
  #import <UIKit/UIKit.h>
 
+ #import "FBSDKAccessToken.h"
  #import "FBSDKAppLink.h"
  #import "FBSDKAppLinkResolverRequestBuilder.h"
- #import "FBSDKCoreKitBasicsImport.h"
+ #import "FBSDKAppLinkTarget.h"
+ #import "FBSDKGraphRequest+Internal.h"
+ #import "FBSDKGraphRequestConnection.h"
+ #import "FBSDKInternalUtility.h"
  #import "FBSDKLogger.h"
  #import "FBSDKSettings+Internal.h"
-
-// Dependencies
- #import "FBSDKAccessToken+AccessTokenProtocols.h"
- #import "FBSDKAccessTokenProtocols.h"
- #import "FBSDKAppLinkResolverRequestBuilder+Protocols.h"
- #import "FBSDKAppLinkResolverRequestBuilding.h"
- #import "FBSDKClientTokenProviding.h"
- #import "FBSDKSettings+ClientTokenProviding.h"
+ #import "FBSDKUtility.h"
 
 static NSString *const kURLKey = @"url";
 static NSString *const kIOSAppStoreIdKey = @"app_store_id";
@@ -52,33 +49,42 @@ static NSString *const kAppLinksKey = @"app_links";
 
 @property (nonatomic, strong) NSMutableDictionary<NSURL *, FBSDKAppLink *> *cachedFBSDKAppLinks;
 @property (nonatomic, assign) UIUserInterfaceIdiom userInterfaceIdiom;
-@property (nonatomic, strong) id<FBSDKAppLinkResolverRequestBuilding> requestBuilder;
-@property (nonatomic, strong) id<FBSDKClientTokenProviding> clientTokenProvider;
-@property (nonatomic, strong) Class<FBSDKAccessTokenProviding> accessTokenProvider;
-
+@property (nonatomic, strong) FBSDKAppLinkResolverRequestBuilder *requestBuilder;
 @end
 
 @implementation FBSDKAppLinkResolver
 
-- (instancetype)initWithUserInterfaceIdiom:(UIUserInterfaceIdiom)userInterfaceIdiom
++ (void)initialize
 {
-  return [self initWithUserInterfaceIdiom:userInterfaceIdiom
-                           requestBuilder:[FBSDKAppLinkResolverRequestBuilder new]
-                      clientTokenProvider:FBSDKSettings.sharedSettings
-                      accessTokenProvider:FBSDKAccessToken.class];
+  if (self == [FBSDKAppLinkResolver class]) {}
 }
 
 - (instancetype)initWithUserInterfaceIdiom:(UIUserInterfaceIdiom)userInterfaceIdiom
-                            requestBuilder:(id<FBSDKAppLinkResolverRequestBuilding>)builder
-                       clientTokenProvider:(id<FBSDKClientTokenProviding>)clientTokenProvider
-                       accessTokenProvider:(Class<FBSDKAccessTokenProviding>)accessTokenProvider
 {
   if (self = [super init]) {
-    _cachedFBSDKAppLinks = [NSMutableDictionary dictionary];
-    _userInterfaceIdiom = userInterfaceIdiom;
-    _requestBuilder = builder;
-    _clientTokenProvider = clientTokenProvider;
-    _accessTokenProvider = accessTokenProvider;
+    self.cachedFBSDKAppLinks = [NSMutableDictionary dictionary];
+    self.userInterfaceIdiom = userInterfaceIdiom;
+    self.requestBuilder = [FBSDKAppLinkResolverRequestBuilder new];
+  }
+  return self;
+}
+
+- (instancetype)initWithUserInterfaceIdiom:(UIUserInterfaceIdiom)userInterfaceIdiom andRequestBuilder:(FBSDKAppLinkResolverRequestBuilder *)builder
+{
+  if (self = [super init]) {
+    self.cachedFBSDKAppLinks = [NSMutableDictionary dictionary];
+    self.userInterfaceIdiom = userInterfaceIdiom;
+    self.requestBuilder = builder;
+  }
+  return self;
+}
+
+- (instancetype)initWithRequestBuilder:(FBSDKAppLinkResolverRequestBuilder *)builder
+{
+  if (self = [super init]) {
+    self.cachedFBSDKAppLinks = [NSMutableDictionary dictionary];
+    self.userInterfaceIdiom = UIDevice.currentDevice.userInterfaceIdiom;
+    self.requestBuilder = builder;
   }
   return self;
 }
@@ -92,7 +98,7 @@ static NSString *const kAppLinksKey = @"app_links";
 
 - (void)appLinksFromURLs:(NSArray<NSURL *> *)urls handler:(FBSDKAppLinksBlock)handler
 {
-  if (!self.clientTokenProvider.clientToken && ![self.accessTokenProvider currentAccessToken]) {
+  if (![FBSDKSettings clientToken] && ![FBSDKAccessToken currentAccessToken]) {
     [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
                            logEntry:@"A user access token or clientToken is required to use FBAppLinkResolver"];
   }
@@ -115,9 +121,9 @@ static NSString *const kAppLinksKey = @"app_links";
     return;
   }
 
-  id<FBSDKGraphRequest> request = [self.requestBuilder requestForURLs:urls];
+  FBSDKGraphRequest *request = [self.requestBuilder requestForURLs:urls];
 
-  [request startWithCompletion:^(id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {
+  [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
     if (error) {
       handler(@{}, error);
       return;

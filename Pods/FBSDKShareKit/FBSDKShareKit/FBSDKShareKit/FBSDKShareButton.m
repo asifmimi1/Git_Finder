@@ -29,9 +29,6 @@
  #endif
  #import "FBSDKShareDialog.h"
 
-FBSDKAppEventName FBSDKAppEventNameFBSDKShareButtonImpression = @"fb_share_button_impression";
-FBSDKAppEventName FBSDKAppEventNameFBSDKShareButtonDidTap = @"fb_share_button_did_tap";
-
 @implementation FBSDKShareButton
 {
   FBSDKShareDialog *_dialog;
@@ -75,7 +72,7 @@ FBSDKAppEventName FBSDKAppEventNameFBSDKShareButtonDidTap = @"fb_share_button_di
   NSLocalizedStringWithDefaultValue(
     @"ShareButton.Share",
     @"FacebookSDK",
-    [FBSDKInternalUtility.sharedUtility bundleForStrings],
+    [FBSDKInternalUtility bundleForStrings],
     @"Share",
     @"The label for FBSDKShareButton"
   );
@@ -86,7 +83,7 @@ FBSDKAppEventName FBSDKAppEventNameFBSDKShareButtonDidTap = @"fb_share_button_di
          highlightedColor:nil];
 
   [self addTarget:self action:@selector(_share:) forControlEvents:UIControlEventTouchUpInside];
-  _dialog = [FBSDKShareDialog new];
+  _dialog = [[FBSDKShareDialog alloc] init];
 }
 
 - (BOOL)isImplicitlyDisabled

@@ -22,15 +22,12 @@
 
  #import "FBSDKReferralManager+Internal.h"
 
- #import "FBSDKCoreKitImport.h"
-
  #ifdef FBSDKCOCOAPODS
   #import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
  #else
   #import "FBSDKCoreKit+Internal.h"
  #endif
 
- #import "FBSDKCoreKitBasicsImportForLoginKit.h"
  #import "FBSDKLoginConstants.h"
  #import "FBSDKReferralManagerLogger.h"
  #import "FBSDKReferralManagerResult.h"
@@ -69,7 +66,7 @@ static int const FBClientStateChallengeLength = 20;
   [_logger logReferralStart];
 
   @try {
-    [FBSDKInternalUtility.sharedUtility validateURLSchemes];
+    [FBSDKInternalUtility validateURLSchemes];
   } @catch (NSException *exception) {
     NSError *error = [FBSDKError errorWithCode:FBSDKLoginErrorUnknown
                                        message:[NSString stringWithFormat:@"%@: %@", exception.name, exception.reason]];
@@ -101,14 +98,14 @@ static int const FBClientStateChallengeLength = 20;
   _expectedChallenge = [self stringForChallenge];
   [FBSDKTypeUtility dictionary:params setObject:_expectedChallenge forKey:@"state"];
 
-  NSURL *redirectURL = [FBSDKInternalUtility.sharedUtility appURLWithHost:@"authorize" path:@"" queryParameters:@{} error:&error];
+  NSURL *redirectURL = [FBSDKInternalUtility appURLWithHost:@"authorize" path:@"" queryParameters:@{} error:&error];
   if (!error) {
     [FBSDKTypeUtility dictionary:params setObject:redirectURL forKey:@"redirect_uri"];
 
-    url = [FBSDKInternalUtility.sharedUtility facebookURLWithHostPrefix:@"m."
-                                                                   path:FBSDKReferralPath
-                                                        queryParameters:params
-                                                                  error:&error];
+    url = [FBSDKInternalUtility facebookURLWithHostPrefix:@"m."
+                                                     path:FBSDKReferralPath
+                                          queryParameters:params
+                                                    error:&error];
   }
 
   if (error || !url) {
@@ -122,7 +119,7 @@ static int const FBClientStateChallengeLength = 20;
 
 - (NSString *)stringForChallenge
 {
-  NSString *challenge = fb_randomString(FBClientStateChallengeLength);
+  NSString *challenge = [FBSDKCrypto randomString:FBClientStateChallengeLength];
 
   return [challenge stringByReplacingOccurrencesOfString:@"+" withString:@"="];
 }
@@ -187,7 +184,7 @@ static int const FBClientStateChallengeLength = 20;
 
   if (isFacebookURL) {
     NSError *error;
-    NSDictionary *params = [FBSDKInternalUtility.sharedUtility parametersFromFBURL:url];
+    NSDictionary *params = [FBSDKInternalUtility parametersFromFBURL:url];
 
     if (![self validateChallenge:params[ChalllengeKey]]) {
       error = [FBSDKError errorWithCode:FBSDKLoginErrorBadChallengeString
@@ -201,7 +198,7 @@ static int const FBClientStateChallengeLength = 20;
     if (!error) {
       NSMutableArray<FBSDKReferralCode *> *referralCodes = [NSMutableArray array];
       for (FBSDKJSONField *object in referralCodesJSON) {
-        FBSDKReferralCode *referralCode = [FBSDKReferralCode initWithString:[FBSDKTypeUtility coercedToStringValue:[object rawObject]]];
+        FBSDKReferralCode *referralCode = [FBSDKReferralCode initWithString:[FBSDKTypeUtility stringValue:[object rawObject]]];
         if (referralCode) {
           [FBSDKTypeUtility array:referralCodes addObject:referralCode];
         }

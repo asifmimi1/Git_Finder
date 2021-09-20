@@ -30,13 +30,13 @@
  #import "FBSDKMessageDialog.h"
  #import "FBSDKMessengerIcon.h"
 
-FBSDKAppEventName FBSDKAppEventNameFBSDKSendButtonImpression = @"fb_send_button_impression";
-FBSDKAppEventName FBSDKAppEventNameFBSDKSendButtonDidTap = @"fb_send_button_did_tap";
-
 @interface FBSDKSendButton () <FBSDKButtonImpressionTracking>
 @end
 
+ #pragma clang diagnostic push
+ #pragma clang diagnostic ignored "-Wdeprecated-implementations"
 @implementation FBSDKSendButton
+ #pragma clang diagnostic pop
 {
   FBSDKMessageDialog *_dialog;
 }
@@ -79,7 +79,7 @@ FBSDKAppEventName FBSDKAppEventNameFBSDKSendButtonDidTap = @"fb_send_button_did_
   NSLocalizedStringWithDefaultValue(
     @"SendButton.Send",
     @"FacebookSDK",
-    [FBSDKInternalUtility.sharedUtility bundleForStrings],
+    [FBSDKInternalUtility bundleForStrings],
     @"Send",
     @"The label for FBSDKSendButton"
   );
@@ -87,13 +87,13 @@ FBSDKAppEventName FBSDKAppEventNameFBSDKSendButtonDidTap = @"fb_send_button_did_
   UIColor *backgroundColor = [UIColor colorWithRed:0.0 green:132.0 / 255.0 blue:1.0 alpha:1.0];
   UIColor *highlightedColor = [UIColor colorWithRed:0.0 green:111.0 / 255.0 blue:1.0 alpha:1.0];
 
-  [self configureWithIcon:[FBSDKMessengerIcon new]
+  [self configureWithIcon:[[FBSDKMessengerIcon alloc] init]
                     title:title
           backgroundColor:backgroundColor
          highlightedColor:highlightedColor];
 
   [self addTarget:self action:@selector(_share:) forControlEvents:UIControlEventTouchUpInside];
-  _dialog = [FBSDKMessageDialog new];
+  _dialog = [[FBSDKMessageDialog alloc] init];
 }
 
 - (BOOL)isImplicitlyDisabled

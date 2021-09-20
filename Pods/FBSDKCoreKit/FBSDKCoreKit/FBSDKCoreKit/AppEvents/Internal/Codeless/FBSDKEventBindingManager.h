@@ -22,22 +22,13 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol FBSDKSwizzling;
-@protocol FBSDKEventLogging;
-@class FBSDKEventBinding;
-
-NS_ASSUME_NONNULL_BEGIN
-
 NS_SWIFT_NAME(EventBindingManager)
 @interface FBSDKEventBindingManager : NSObject
 
-- (instancetype)initWithSwizzler:(Class<FBSDKSwizzling>)swizzling
-                     eventLogger:(id<FBSDKEventLogging>)eventLogger;
+- (FBSDKEventBindingManager*)initWithJSON:(NSDictionary*)dict;
 - (void)updateBindings:(NSArray *)bindings;
-- (NSArray<FBSDKEventBinding *> *)parseArray:(NSArray *)array;
++ (NSArray *)parseArray:(NSArray *)array;
 
 @end
-
-NS_ASSUME_NONNULL_END
 
 #endif

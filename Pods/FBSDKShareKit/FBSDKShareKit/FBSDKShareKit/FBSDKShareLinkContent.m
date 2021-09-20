@@ -23,8 +23,6 @@
 #else
  #import "FBSDKCoreKit+Internal.h"
 #endif
-
-#import "FBSDKCoreKitBasicsImportForShareKit.h"
 #import "FBSDKHashtag.h"
 #import "FBSDKShareUtility.h"
 
@@ -66,7 +64,7 @@
 - (void)setPeopleIDs:(NSArray<NSString *> *)peopleIDs
 {
   [FBSDKShareUtility assertCollection:peopleIDs ofClass:[NSString class] name:@"peopleIDs"];
-  if (![FBSDKInternalUtility.sharedUtility object:_peopleIDs isEqualToObject:peopleIDs]) {
+  if (![FBSDKInternalUtility object:_peopleIDs isEqualToObject:peopleIDs]) {
     _peopleIDs = [peopleIDs copy];
   }
 }
@@ -128,14 +126,14 @@
 - (BOOL)isEqualToShareLinkContent:(FBSDKShareLinkContent *)content
 {
   return (content
-    && [FBSDKInternalUtility.sharedUtility object:_contentURL isEqualToObject:content.contentURL]
-    && [FBSDKInternalUtility.sharedUtility object:_hashtag isEqualToObject:content.hashtag]
-    && [FBSDKInternalUtility.sharedUtility object:_peopleIDs isEqualToObject:content.peopleIDs]
-    && [FBSDKInternalUtility.sharedUtility object:_placeID isEqualToObject:content.placeID]
-    && [FBSDKInternalUtility.sharedUtility object:_ref isEqualToObject:content.ref]
-    && [FBSDKInternalUtility.sharedUtility object:_pageID isEqualToObject:content.pageID]
-    && [FBSDKInternalUtility.sharedUtility object:_shareUUID isEqualToObject:content.shareUUID])
-  && [FBSDKInternalUtility.sharedUtility object:_quote isEqualToObject:content.quote];
+    && [FBSDKInternalUtility object:_contentURL isEqualToObject:content.contentURL]
+    && [FBSDKInternalUtility object:_hashtag isEqualToObject:content.hashtag]
+    && [FBSDKInternalUtility object:_peopleIDs isEqualToObject:content.peopleIDs]
+    && [FBSDKInternalUtility object:_placeID isEqualToObject:content.placeID]
+    && [FBSDKInternalUtility object:_ref isEqualToObject:content.ref]
+    && [FBSDKInternalUtility object:_pageID isEqualToObject:content.pageID]
+    && [FBSDKInternalUtility object:_shareUUID isEqualToObject:content.shareUUID])
+  && [FBSDKInternalUtility object:_quote isEqualToObject:content.quote];
 }
 
 #pragma mark - NSCoding
@@ -176,7 +174,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  FBSDKShareLinkContent *copy = [FBSDKShareLinkContent new];
+  FBSDKShareLinkContent *copy = [[FBSDKShareLinkContent alloc] init];
   copy->_contentURL = [_contentURL copy];
   copy->_hashtag = [_hashtag copy];
   copy->_peopleIDs = [_peopleIDs copy];

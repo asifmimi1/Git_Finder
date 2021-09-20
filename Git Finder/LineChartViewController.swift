@@ -11,6 +11,11 @@ import TinyConstraints
 
 class LineChartViewController: UIViewController, ChartViewDelegate {
     
+    class func initVC()->UIViewController {
+        let board = UIStoryboard.init(name: "Landing", bundle: nil)
+        return board.instantiateViewController(withIdentifier: "LineChartViewController")
+    }
+    
     lazy var lineChartView:LineChartView = {
         let lineChart = LineChartView()
         lineChart.backgroundColor = #colorLiteral(red: 0.05126982182, green: 0.12172658, blue: 0.1982372999, alpha: 1)
@@ -22,7 +27,8 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         yAxis.setLabelCount(5, force: false)
         yAxis.labelTextColor = .darkGray
         yAxis.axisLineColor = .darkGray
-        yAxis.gridLineWidth = 0
+        yAxis.gridLineWidth.round()
+        yAxis.drawGridLinesEnabled = true
         
         // xAxis - Bottom
         let xAxis = lineChart.xAxis
@@ -31,6 +37,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         xAxis.setLabelCount(5, force: false)
         xAxis.labelTextColor = .darkGray
         xAxis.axisLineColor = .darkGray
+        lineChart.leftAxis.axisLineDashPhase = .nan
         
         lineChart.animate(xAxisDuration: 1.5)
         lineChart.moveViewToY(0.0, axis: yAxis.axisDependency)
@@ -54,13 +61,13 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
                 marker.minimumSize = CGSize(width: 40, height: 40)
                 lineChartView.marker = marker
         
-        setData()
+        setup()
     }
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         print(entry)
     }
     
-    func setData() {
+    func setup() {
         
         let set1 = LineChartDataSet(entries: yValues, label: "Subscribers")
         set1.drawCirclesEnabled = false //hides the peek circles

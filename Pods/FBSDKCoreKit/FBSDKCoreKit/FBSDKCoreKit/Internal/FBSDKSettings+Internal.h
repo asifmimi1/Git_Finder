@@ -17,45 +17,26 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #if SWIFT_PACKAGE
-#import "FBSDKAdvertisingTrackingStatus.h"
  #import "FBSDKSettings.h"
 #else
-#import <FBSDKCoreKit/FBSDKAdvertisingTrackingStatus.h>
  #import <FBSDKCoreKit/FBSDKSettings.h>
 #endif
+
+#import "FBSDKCoreKit+Internal.h"
 
 #define DATA_PROCESSING_OPTIONS         @"data_processing_options"
 #define DATA_PROCESSING_OPTIONS_COUNTRY @"data_processing_options_country"
 #define DATA_PROCESSING_OPTIONS_STATE   @"data_processing_options_state"
 
 @protocol FBSDKTokenCaching;
-@protocol FBSDKDataPersisting;
-@protocol FBSDKAppEventsConfigurationProviding;
-@protocol FBSDKInfoDictionaryProviding;
-@protocol FBSDKEventLogging;
 
 @interface FBSDKSettings (Internal)
-
-@property (class, nullable, nonatomic, readonly, copy) NSString *graphAPIDebugParamValue;
-// used by Unity.
-@property (class, nullable, nonatomic, copy) NSString *userAgentSuffix;
-@property (class, nonnull, readonly) FBSDKSettings *sharedSettings;
-
-@property (nonatomic) BOOL shouldUseTokenOptimizations;
-@property (nonatomic, copy, null_resettable) NSString *graphAPIVersion;
-@property (nonatomic, nonatomic, readonly) BOOL graphErrorRecoveryEnabled;
-
-+ (void)configureWithStore:(nonnull id<FBSDKDataPersisting>)store
-appEventsConfigurationProvider:(nonnull Class<FBSDKAppEventsConfigurationProviding>)provider
-    infoDictionaryProvider:(nonnull id<FBSDKInfoDictionaryProviding>)infoDictionaryProvider
-               eventLogger:(nonnull id<FBSDKEventLogging>)eventLogger
-NS_SWIFT_NAME(configure(store:appEventsConfigurationProvider:infoDictionaryProvider:eventLogger:));
 
 + (nullable NSObject<FBSDKTokenCaching> *)tokenCache;
 
 + (void)setTokenCache:(nullable NSObject<FBSDKTokenCaching> *)tokenCache;
 
-+ (FBSDKAdvertisingTrackingStatus)advertisingTrackingStatus;
++ (FBSDKAdvertisingTrackingStatus)getAdvertisingTrackingStatus;
 
 + (void)setAdvertiserTrackingStatus:(FBSDKAdvertisingTrackingStatus)status;
 
@@ -63,6 +44,7 @@ NS_SWIFT_NAME(configure(store:appEventsConfigurationProvider:infoDictionaryProvi
 
 + (BOOL)isDataProcessingRestricted;
 
++ (void)recordInstall;
 
 + (void)recordSetAdvertiserTrackingEnabled;
 
@@ -74,10 +56,9 @@ NS_SWIFT_NAME(configure(store:appEventsConfigurationProvider:infoDictionaryProvi
 
 + (NSDate *_Nullable)getSetAdvertiserTrackingEnabledTimestamp;
 
-- (void)recordInstall;
+@property (class, nullable, nonatomic, readonly, copy) NSString *graphAPIDebugParamValue;
 
-- (void)logWarnings;
-
-- (void)logIfSDKSettingsChanged;
+// used by Unity.
+@property (class, nullable, nonatomic, copy) NSString *userAgentSuffix;
 
 @end

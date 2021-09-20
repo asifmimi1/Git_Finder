@@ -25,8 +25,6 @@
 #else
  #import "FBSDKCoreKit+Internal.h"
 #endif
-
-#import "FBSDKCoreKitBasicsImportForShareKit.h"
 #import "FBSDKHashtag.h"
 #import "FBSDKSharePhoto.h"
 #import "FBSDKShareUtility.h"
@@ -68,7 +66,7 @@
 - (void)setPeopleIDs:(NSArray *)peopleIDs
 {
   [FBSDKShareUtility assertCollection:peopleIDs ofClass:[NSString class] name:@"peopleIDs"];
-  if (![FBSDKInternalUtility.sharedUtility object:_peopleIDs isEqualToObject:peopleIDs]) {
+  if (![FBSDKInternalUtility object:_peopleIDs isEqualToObject:peopleIDs]) {
     _peopleIDs = [peopleIDs copy];
   }
 }
@@ -76,7 +74,7 @@
 - (void)setPhotos:(NSArray *)photos
 {
   [FBSDKShareUtility assertCollection:photos ofClass:[FBSDKSharePhoto class] name:@"photos"];
-  if (![FBSDKInternalUtility.sharedUtility object:_photos isEqualToObject:photos]) {
+  if (![FBSDKInternalUtility object:_photos isEqualToObject:photos]) {
     _photos = [photos copy];
   }
 }
@@ -88,11 +86,11 @@
 {
   NSMutableDictionary<NSString *, id> *updatedParameters = [NSMutableDictionary dictionaryWithDictionary:existingParameters];
 
-  NSMutableArray<UIImage *> *images = [NSMutableArray new];
+  NSMutableArray<UIImage *> *images = [[NSMutableArray alloc] init];
   for (FBSDKSharePhoto *photo in _photos) {
     if (photo.photoAsset) {
       // load the asset and bridge the image
-      PHImageRequestOptions *imageRequestOptions = [PHImageRequestOptions new];
+      PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc] init];
       imageRequestOptions.resizeMode = PHImageRequestOptionsResizeModeExact;
       imageRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
       imageRequestOptions.synchronous = YES;
@@ -174,14 +172,14 @@
 - (BOOL)isEqualToSharePhotoContent:(FBSDKSharePhotoContent *)content
 {
   return (content
-    && [FBSDKInternalUtility.sharedUtility object:_contentURL isEqualToObject:content.contentURL]
-    && [FBSDKInternalUtility.sharedUtility object:_hashtag isEqualToObject:content.hashtag]
-    && [FBSDKInternalUtility.sharedUtility object:_peopleIDs isEqualToObject:content.peopleIDs]
-    && [FBSDKInternalUtility.sharedUtility object:_photos isEqualToObject:content.photos]
-    && [FBSDKInternalUtility.sharedUtility object:_placeID isEqualToObject:content.placeID]
-    && [FBSDKInternalUtility.sharedUtility object:_ref isEqualToObject:content.ref]
-    && [FBSDKInternalUtility.sharedUtility object:_shareUUID isEqualToObject:content.shareUUID]
-    && [FBSDKInternalUtility.sharedUtility object:_pageID isEqualToObject:content.pageID]);
+    && [FBSDKInternalUtility object:_contentURL isEqualToObject:content.contentURL]
+    && [FBSDKInternalUtility object:_hashtag isEqualToObject:content.hashtag]
+    && [FBSDKInternalUtility object:_peopleIDs isEqualToObject:content.peopleIDs]
+    && [FBSDKInternalUtility object:_photos isEqualToObject:content.photos]
+    && [FBSDKInternalUtility object:_placeID isEqualToObject:content.placeID]
+    && [FBSDKInternalUtility object:_ref isEqualToObject:content.ref]
+    && [FBSDKInternalUtility object:_shareUUID isEqualToObject:content.shareUUID]
+    && [FBSDKInternalUtility object:_pageID isEqualToObject:content.pageID]);
 }
 
 #pragma mark - NSCoding
@@ -223,7 +221,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  FBSDKSharePhotoContent *copy = [FBSDKSharePhotoContent new];
+  FBSDKSharePhotoContent *copy = [[FBSDKSharePhotoContent alloc] init];
   copy->_contentURL = [_contentURL copy];
   copy->_hashtag = [_hashtag copy];
   copy->_peopleIDs = [_peopleIDs copy];

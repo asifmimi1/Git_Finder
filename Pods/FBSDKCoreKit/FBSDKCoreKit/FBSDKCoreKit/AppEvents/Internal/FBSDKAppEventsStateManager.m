@@ -22,96 +22,52 @@
 
 #import "FBSDKAppEventsState.h"
 #import "FBSDKAppEventsUtility.h"
-#import "FBSDKCoreKitBasicsImport.h"
+#import "FBSDKInternalUtility.h"
 #import "FBSDKLogger.h"
 #import "FBSDKSettings.h"
-#import "FBSDKUnarchiverProvider.h"
 
-@interface FBSDKAppEventsStateManager (Internal)
 // A quick optimization to allow returning empty array if we know there are no persisted events.
-@property (nonatomic, readwrite, assign) BOOL canSkipDiskCheck;
-@end
+static BOOL g_canSkipDiskCheck = NO;
 
 @implementation FBSDKAppEventsStateManager
-{
-  BOOL _canSkipDiskCheck;
-}
 
-- (instancetype)init
-{
-  self.canSkipDiskCheck = NO;
-  return self;
-}
-
-- (void)setCanSkipDiskCheck:(BOOL)canSkipDiskCheck
-{
-  _canSkipDiskCheck = canSkipDiskCheck;
-}
-
-- (BOOL)canSkipDiskCheck
-{
-  return _canSkipDiskCheck;
-}
-
-+ (FBSDKAppEventsStateManager *)shared
-{
-  static dispatch_once_t nonce;
-  static FBSDKAppEventsStateManager *instance = nil;
-
-  dispatch_once(&nonce, ^{
-    instance = [FBSDKAppEventsStateManager new];
-  });
-  return instance;
-}
-
-- (void)clearPersistedAppEventsStates
++ (void)clearPersistedAppEventsStates
 {
   [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorAppEvents
                          logEntry:@"FBSDKAppEvents Persist: Clearing"];
-  [[NSFileManager defaultManager] removeItemAtPath:[self filePath]
+  [[NSFileManager defaultManager] removeItemAtPath:[[self class] filePath]
                                              error:NULL];
-  self.canSkipDiskCheck = YES;
+  g_canSkipDiskCheck = YES;
 }
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-- (void)persistAppEventsData:(FBSDKAppEventsState *)appEventsState
++ (void)persistAppEventsData:(FBSDKAppEventsState *)appEventsState
 {
-  NSString *msg = [NSString stringWithFormat:@"FBSDKAppEvents Persist: Writing %lu events", (unsigned long)appEventsState.events.count];
   [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorAppEvents
-                         logEntry:msg];
+                     formatString:@"FBSDKAppEvents Persist: Writing %lu events", (unsigned long)appEventsState.events.count];
 
   if (!appEventsState.events.count) {
     return;
   }
-  NSMutableArray *existingEvents = [NSMutableArray arrayWithArray:[self retrievePersistedAppEventsStates]];
+  NSMutableArray *existingEvents = [NSMutableArray arrayWithArray:[[self class] retrievePersistedAppEventsStates]];
   [FBSDKTypeUtility array:existingEvents addObject:appEventsState];
 
-  [NSKeyedArchiver archiveRootObject:existingEvents toFile:[self filePath]];
-  self.canSkipDiskCheck = NO;
+  [NSKeyedArchiver archiveRootObject:existingEvents toFile:[[self class] filePath]];
+  g_canSkipDiskCheck = NO;
 }
 
-- (NSArray *)retrievePersistedAppEventsStates
++ (NSArray *)retrievePersistedAppEventsStates
 {
   NSMutableArray *eventsStates = [NSMutableArray array];
-  if (!self.canSkipDiskCheck) {
-    NSData *data = [[NSData alloc] initWithContentsOfFile:[self filePath] options:NSDataReadingMappedIfSafe error:NULL];
-    id<FBSDKObjectDecoding> unarchiver = [FBSDKUnarchiverProvider createSecureUnarchiverFor:data];
-    @try {
-      NSArray<FBSDKAppEventsState *> *retrievedEvents = [unarchiver decodeObjectOfClasses:
-                                                         [NSSet setWithObjects:NSArray.class, FBSDKAppEventsState.class, NSDictionary.class, nil]
-                                                                                   forKey:NSKeyedArchiveRootObjectKey];
-      [eventsStates addObjectsFromArray:[FBSDKTypeUtility arrayValue:retrievedEvents]];
-    } @catch (NSException *ex) {
-      // ignore decoding exceptions from previous versions of the archive, etc
-    }
+  if (!g_canSkipDiskCheck) {
+    [eventsStates addObjectsFromArray:[NSKeyedUnarchiver unarchiveObjectWithFile:[[self class] filePath]]];
 
-    NSString *msg = [NSString stringWithFormat:@"FBSDKAppEvents Persist: Read %lu event states. First state has %lu events",
-                     (unsigned long)eventsStates.count,
-                     (unsigned long)(eventsStates.count > 0 ? ((FBSDKAppEventsState *)[FBSDKTypeUtility array:eventsStates objectAtIndex:0]).events.count : 0)];
     [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorAppEvents
-                           logEntry:msg];
-    [self clearPersistedAppEventsStates];
+                       formatString:@"FBSDKAppEvents Persist: Read %lu event states. First state has %lu events",
+     (unsigned long)eventsStates.count,
+     (unsigned long)(eventsStates.count > 0 ? ((FBSDKAppEventsState *)[FBSDKTypeUtility array:eventsStates objectAtIndex:0]).events.count : 0)];
+    [[self class] clearPersistedAppEventsStates];
   }
   return eventsStates;
 }
@@ -120,7 +76,7 @@
 
 #pragma mark - Private Helpers
 
-- (NSString *)filePath
++ (NSString *)filePath
 {
   return [FBSDKBasicUtility persistenceFilePath:@"com-facebook-sdk-AppEventsPersistedEvents.json"];
 }

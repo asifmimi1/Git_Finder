@@ -18,20 +18,15 @@
 
 #import <Foundation/Foundation.h>
 
-#if FBSDK_SWIFT_PACKAGE
+#if SWIFT_PACKAGE
 #import "FBSDKAccessToken.h"
-#import "FBSDKTokenCaching.h"
 #else
 #import <FBSDKCoreKit/FBSDKAccessToken.h>
-#import <FBSDKCoreKit/FBSDKTokenCaching.h>
 #endif
 
-
-@protocol FBSDKSettings;
+#import "FBSDKTokenCaching.h"
 
 NS_SWIFT_NAME(TokenCache)
 @interface FBSDKTokenCache : NSObject<FBSDKTokenCaching>
-
-- (instancetype)initWithSettings:(id<FBSDKSettings>)settings;
 
 @end

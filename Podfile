@@ -15,11 +15,18 @@ target 'Git Finder' do
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Storage'
   pod 'Firebase/Core'
+  
   pod 'SVProgressHUD'
+  
   pod 'FireworkVideo'
+  
+  pod 'FBSDKCoreKit'
+#  , '~> 8.0.0'
+  
+  pod "Charts"
+  pod "TinyConstraints"
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
-  pod "Charts"
-  pod "TinyConstraints"
+  
 end

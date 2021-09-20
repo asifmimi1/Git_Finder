@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  * A texture for a camera effect is an UIImages identified by a NSString key.
  */
 NS_SWIFT_NAME(CameraEffectTextures)
-@interface FBSDKCameraEffectTextures : NSObject <NSCopying, NSObject, NSSecureCoding>
+@interface FBSDKCameraEffectTextures : NSObject <FBSDKCopying, NSSecureCoding>
 
 /**
  Sets the image for a texture key.

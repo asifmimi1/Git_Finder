@@ -87,7 +87,7 @@
   const CGFloat kQRCodeSize = 200;
 
   // build the container view.
-  UIView *dialogView = [UIView new];
+  UIView *dialogView = [[UIView alloc] init];
   dialogView.layer.cornerRadius = 3;
   dialogView.translatesAutoresizingMaskIntoConstraints = NO;
   dialogView.clipsToBounds = YES;
@@ -99,7 +99,7 @@
   [dialogView.heightAnchor constraintEqualToConstant:kHeight].active = YES;
 
   // build the header container view (which will contain the logo and code).
-  UIView *dialogHeaderView = [UIView new];
+  UIView *dialogHeaderView = [[UIView alloc] init];
   dialogHeaderView.translatesAutoresizingMaskIntoConstraints = NO;
   dialogHeaderView.backgroundColor = [UIColor colorWithRed:226.0 / 255.0 green:231.0 / 255.0 blue:235.0 / 255.0 alpha:0.85];
   [dialogView addSubview:dialogHeaderView];
@@ -132,7 +132,7 @@
   [_spinner startAnimating];
 
   // build the confirmation code (which replaces the spinner when the code is available).
-  _confirmationCodeLabel = [UILabel new];
+  _confirmationCodeLabel = [[UILabel alloc] init];
   _confirmationCodeLabel.translatesAutoresizingMaskIntoConstraints = NO;
   _confirmationCodeLabel.textColor = self.logoColor;
   _confirmationCodeLabel.font = [UIFont systemFontOfSize:kConfirmationCodeFontSize weight:UIFontWeightLight];
@@ -158,18 +158,18 @@
                                               constant:kQRCodeSize].active = YES;
 
   // build the instructions UILabel
-  UILabel *instructionLabel = [UILabel new];
+  UILabel *instructionLabel = [[UILabel alloc] init];
   instructionLabel.translatesAutoresizingMaskIntoConstraints = NO;
   NSString *localizedFormatString = NSLocalizedStringWithDefaultValue(
     @"DeviceLogin.LogInPrompt",
     @"FacebookSDK",
-    [FBSDKInternalUtility.sharedUtility bundleForStrings],
+    [FBSDKInternalUtility bundleForStrings],
     @"Visit %@ and enter your code.",
     @"The format string for device login instructions"
   );
   NSString *const deviceLoginURLString = @"facebook.com/device";
   NSString *instructionString = [NSString localizedStringWithFormat:localizedFormatString, deviceLoginURLString];
-  NSMutableParagraphStyle *instructionLabelParagraphStyle = [NSMutableParagraphStyle new];
+  NSMutableParagraphStyle *instructionLabelParagraphStyle = [[NSMutableParagraphStyle alloc] init];
   instructionLabelParagraphStyle.lineHeightMultiple = 1.1;
   NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:instructionString
                                                                                        attributes:@{ NSParagraphStyleAttributeName : instructionLabelParagraphStyle }];
@@ -190,7 +190,7 @@
                                             constant:kInstructionTextHorizontalMargin].active = YES;
 
   // build the container view for the cancel button.
-  UIView *buttonContainerView = [UIView new];
+  UIView *buttonContainerView = [[UIView alloc] init];
   buttonContainerView.translatesAutoresizingMaskIntoConstraints = NO;
   [dialogView addSubview:buttonContainerView];
   [NSLayoutConstraint constraintWithItem:buttonContainerView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:dialogView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0].active = YES;
@@ -210,7 +210,7 @@
   [button setTitle:NSLocalizedStringWithDefaultValue(
     @"LoginButton.CancelLogout",
     @"FacebookSDK",
-    [FBSDKInternalUtility.sharedUtility bundleForStrings],
+    [FBSDKInternalUtility bundleForStrings],
     @"Cancel",
     @"The label for the FBSDKLoginButton action sheet to cancel logging out"
   )

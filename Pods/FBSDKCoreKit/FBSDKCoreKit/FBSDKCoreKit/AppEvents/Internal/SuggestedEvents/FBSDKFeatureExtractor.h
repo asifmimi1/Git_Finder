@@ -22,8 +22,6 @@
 
  #import <Foundation/Foundation.h>
 
- #import "FBSDKFeatureExtracting.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FBSDKFeatureExtractor : NSObject
@@ -33,10 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
               withScreenName:(NSString *)screenName;
 + (nullable float *)getDenseFeatures:(NSDictionary *)viewHierarchy;
 
-@end
-
-// Default conformance to the feature extracting protocol
-@interface FBSDKFeatureExtractor (FeatureExtracting) <FBSDKFeatureExtracting>
 @end
 
 NS_ASSUME_NONNULL_END

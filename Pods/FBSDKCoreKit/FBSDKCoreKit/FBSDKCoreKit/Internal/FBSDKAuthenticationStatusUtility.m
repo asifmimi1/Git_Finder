@@ -20,14 +20,15 @@
 
 #if !TARGET_OS_TV
 
- #import "FBSDKAuthenticationStatusUtility.h"
+#import "FBSDKAuthenticationStatusUtility.h"
 
- #import "FBSDKAccessToken.h"
- #import "FBSDKAuthenticationToken.h"
- #import "FBSDKCoreKitBasicsImport.h"
- #import "FBSDKInternalUtility+Internal.h"
- #import "FBSDKLogger.h"
- #import "FBSDKProfile.h"
+#ifdef FBSDKCOCOAPODS
+ #import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
+#else
+ #import "FBSDKCoreKit+Internal.h"
+#endif
+
+#import "FBSDKAuthenticationToken+Internal.h"
 
 static NSString *const FBSDKOIDCStatusPath = @"/platform/oidc/status";
 
@@ -50,7 +51,7 @@ static NSString *const FBSDKOIDCStatusPath = @"/platform/oidc/status";
                                        });
                                      } else {
                                        [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorNetworkRequests
-                                                              logEntry:error.localizedDescription];
+                                                          formatString:@"%@", [error localizedDescription]];
                                      }
                                    }] resume];
   }
@@ -84,10 +85,10 @@ static NSString *const FBSDKOIDCStatusPath = @"/platform/oidc/status";
   NSDictionary *params = @{@"id_token" : token.tokenString};
   NSError *error;
 
-  NSURL *requestURL = [FBSDKInternalUtility.sharedUtility unversionedFacebookURLWithHostPrefix:@"m"
-                                                                                          path:FBSDKOIDCStatusPath
-                                                                               queryParameters:params
-                                                                                         error:&error];
+  NSURL *requestURL = [FBSDKInternalUtility unversionedFacebookURLWithHostPrefix:@"m"
+                                                                            path:FBSDKOIDCStatusPath
+                                                                 queryParameters:params
+                                                                           error:&error];
   return error == nil ? requestURL : nil;
 }
 

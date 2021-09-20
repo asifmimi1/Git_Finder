@@ -24,7 +24,7 @@
 
  #import <UIKit/UIKit.h>
 
- #import "FBSDKCoreKitBasicsImportForShareKit.h"
+ #import "FBSDKCoreKitInternalImport.h"
  #import "FBSDKLikeActionController.h"
 
 // after 1 day, expire the cached states
@@ -45,7 +45,7 @@
 {
   if ((self = [super init])) {
     _accessTokenString = [accessTokenString copy];
-    _items = [NSMutableDictionary new];
+    _items = [[NSMutableDictionary alloc] init];
   }
   return self;
 }
@@ -99,7 +99,7 @@
 
 - (void)_prune
 {
-  NSMutableArray *keysToRemove = [NSMutableArray new];
+  NSMutableArray *keysToRemove = [[NSMutableArray alloc] init];
   [FBSDKTypeUtility dictionary:_items enumerateKeysAndObjectsUsingBlock:^(NSString *objectID,
                                                                           FBSDKLikeActionController *likeActionController,
                                                                           BOOL *stop) {

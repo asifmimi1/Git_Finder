@@ -18,12 +18,12 @@
 
 #import "FBSDKGraphRequestMetadata.h"
 
-#import "FBSDKGraphRequestProtocol.h"
+#import "FBSDKGraphRequest.h"
 
 @implementation FBSDKGraphRequestMetadata
 
-- (instancetype)initWithRequest:(id<FBSDKGraphRequest>)request
-              completionHandler:(FBSDKGraphRequestCompletion)handler
+- (instancetype)initWithRequest:(FBSDKGraphRequest *)request
+              completionHandler:(FBSDKGraphRequestBlock)handler
                 batchParameters:(NSDictionary *)batchParameters
 {
   if ((self = [super init])) {
@@ -34,7 +34,7 @@
   return self;
 }
 
-- (void)invokeCompletionHandlerForConnection:(id<FBSDKGraphRequestConnecting>)connection
+- (void)invokeCompletionHandlerForConnection:(FBSDKGraphRequestConnection *)connection
                                  withResults:(id)results
                                        error:(NSError *)error
 {
@@ -50,7 +50,7 @@
           self,
           self.batchParameters,
           self.completionHandler,
-          self.request.formattedDescription];
+          self.request.description];
 }
 
 @end

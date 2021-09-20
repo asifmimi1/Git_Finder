@@ -4,24 +4,21 @@
 <dict>
 	<key>FireworkVideoAppID</key>
 	<string>9e320da50f69212461fd9528a6b3e6f6758537187097720fe71cf0b3f867415d</string>
-	
-    
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>3019120898364691</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>3019120898364691</string>
-    <key>FacebookClientToken</key>
-    <string>72373fac8f4b7fc3fd9d413c37475ba3</string>
-    <key>FacebookDisplayName</key>
-    <string>Git_Finder</string>
-    
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb3019120898364691</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>398244478556123</string>
+	<key>FacebookClientToken</key>
+	<string>1902b00ae2e32c14b4de7b38df83f0bc</string>
+	<key>FacebookDisplayName</key>
+	<string>Git_Finder</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -40,8 +37,6 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
-	<key>FacebookAutoLogAppEventsEnabled</key>
-	<false/>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Please allow access to select photos or videos</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -102,25 +97,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-    
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb3019120898364691</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>3019120898364691</string>
-    <key>FacebookDisplayName</key>
-    <string>Git Finder</string>
-    
-    
-    <key>FacebookAutoLogAppEventsEnabled</key>
-    <true/>
-    
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<true/>
 </dict>
 </plist>

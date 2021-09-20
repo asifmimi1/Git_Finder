@@ -119,7 +119,7 @@ static const CGFloat kPreferredPaddingBetweenLogoTitle = 44.0;
   if (!string) {
     return nil;
   }
-  NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+  NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
   style.alignment = NSTextAlignmentCenter;
   style.lineBreakMode = NSLineBreakByClipping;
   NSMutableAttributedString *attributedString =

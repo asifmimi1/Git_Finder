@@ -17,8 +17,7 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 @class FBSDKGraphRequestBody;
-@protocol FBSDKURLSessionProxying;
-@protocol FBSDKURLSessionProxyProviding;
+@class FBSDKURLSession;
 
 #if SWIFT_PACKAGE
  #import "FBSDKGraphRequestConnection.h"
@@ -26,20 +25,17 @@
  #import <FBSDKCoreKit/FBSDKGraphRequestConnection.h>
 #endif
 
-#import "FBSDKGraphRequestMetadata.h"
-
 @interface FBSDKGraphRequestConnection (Internal)
 
-@property (nonatomic, readonly) NSMutableArray<FBSDKGraphRequestMetadata *> *requests;
-
-+ (void)setCanMakeRequests;
+@property (nonatomic, readonly) NSMutableArray *requests;
+@property (nonatomic, strong) FBSDKURLSession *session;
 
 /**
  Get the graph request url for a single graph request
  @param request The Graph Request we need the url for
  @param forBatch whether the request is a batch request.
  */
-- (NSString *)urlStringForSingleRequest:(id<FBSDKGraphRequest>)request forBatch:(BOOL)forBatch;
+- (NSString *)urlStringForSingleRequest:(FBSDKGraphRequest *)request forBatch:(BOOL)forBatch;
 
 /**
  Add the specified body as the HTTPBody of the specified request.

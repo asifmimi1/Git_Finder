@@ -22,6 +22,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FBSDKCopying.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  NSObject<NSCopying, NSMutableCopying> implicitly conforms to this protocol.
  */
 NS_SWIFT_NAME(MutableCopying)
-@protocol FBSDKMutableCopying <NSCopying, NSObject, NSMutableCopying>
+@protocol FBSDKMutableCopying <FBSDKCopying, NSMutableCopying>
 
 /**
   Implemented by NSObject as a convenience to mutableCopyWithZone:.

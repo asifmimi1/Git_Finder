@@ -48,29 +48,42 @@ NSString *const FBSDKAppLinkNavigateOutEventName = @"al_nav_out";
 NSString *const FBSDKAppLinkNavigateBackToReferrerEventName = @"al_ref_back_out";
 
 @implementation FBSDKMeasurementEvent
-
-- (void)postNotificationForEventName:(NSString *)name
-                                args:(NSDictionary<NSString *, id> *)args
 {
-  if (!name) {
+  NSString *_name;
+  NSDictionary<NSString *, id> *_args;
+}
+
+- (void)postNotification
+{
+  if (!_name) {
     [FBSDKLogger
      singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
      logEntry:@"Warning: Missing event name when logging FBSDK measurement event.\nIgnoring this event in logging."];
     return;
   }
   NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-  NSDictionary<NSString *, id> *userInfo = @{FBSDKMeasurementEventNameKey : name,
-                                             FBSDKMeasurementEventArgsKey : args};
+  NSDictionary<NSString *, id> *userInfo = @{FBSDKMeasurementEventNameKey : _name,
+                                             FBSDKMeasurementEventArgsKey : _args};
 
   [center postNotificationName:FBSDKMeasurementEventNotification
                         object:self
                       userInfo:userInfo];
 }
 
+- (instancetype)initEventWithName:(NSString *)name
+                             args:(NSDictionary<NSString *, id> *)args
+{
+  if ((self = [super init])) {
+    _name = name;
+    _args = args ? args : @{};
+  }
+  return self;
+}
+
 + (void)postNotificationForEventName:(NSString *)name
                                 args:(NSDictionary<NSString *, id> *)args
 {
-  [[self new] postNotificationForEventName:name args:args ?: @{}];
+  [[[self alloc] initEventWithName:name args:args] postNotification];
 }
 
 @end

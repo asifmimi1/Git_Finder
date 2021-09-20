@@ -20,8 +20,6 @@
 
 @implementation FBSDKDeviceLoginCodeInfo
 
-static int const FBDeviceLoginMinPollingInterval = 5;
-
 - (instancetype)initWithIdentifier:(NSString *)identifier
                          loginCode:(NSString *)loginCode
                    verificationURL:(NSURL *)verificationURL
@@ -33,9 +31,7 @@ static int const FBDeviceLoginMinPollingInterval = 5;
     _loginCode = [loginCode copy];
     _verificationURL = [verificationURL copy];
     _expirationDate = [expirationDate copy];
-    _pollingInterval = pollingInterval < FBDeviceLoginMinPollingInterval
-    ? FBDeviceLoginMinPollingInterval
-    : pollingInterval;
+    _pollingInterval = pollingInterval;
   }
   return self;
 }

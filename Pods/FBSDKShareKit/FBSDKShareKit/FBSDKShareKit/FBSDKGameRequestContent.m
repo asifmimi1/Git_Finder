@@ -153,15 +153,13 @@
                                                 isIn:@[@(FBSDKGameRequestActionTypeNone),
                                                        @(FBSDKGameRequestActionTypeSend),
                                                        @(FBSDKGameRequestActionTypeAskFor),
-                                                       @(FBSDKGameRequestActionTypeTurn),
-                                                       @(FBSDKGameRequestActionTypeInvite)]
+                                                       @(FBSDKGameRequestActionTypeTurn)]
                                                error:errorRef]
   && [FBSDKShareUtility validateArgumentWithName:@"filters"
                                            value:_filters
                                             isIn:@[@(FBSDKGameRequestFilterNone),
                                                    @(FBSDKGameRequestFilterAppUsers),
-                                                   @(FBSDKGameRequestFilterAppNonUsers),
-                                                   @(FBSDKGameRequestFilterEverybody)]
+                                                   @(FBSDKGameRequestFilterAppNonUsers)]
                                            error:errorRef];
 }
 
@@ -198,12 +196,12 @@
   return (content
     && _actionType == content.actionType
     && _filters == content.filters
-    && [FBSDKInternalUtility.sharedUtility object:_data isEqualToObject:content.data]
-    && [FBSDKInternalUtility.sharedUtility object:_message isEqualToObject:content.message]
-    && [FBSDKInternalUtility.sharedUtility object:_objectID isEqualToObject:content.objectID]
-    && [FBSDKInternalUtility.sharedUtility object:_recipientSuggestions isEqualToObject:content.recipientSuggestions]
-    && [FBSDKInternalUtility.sharedUtility object:_title isEqualToObject:content.title]
-    && [FBSDKInternalUtility.sharedUtility object:_recipients isEqualToObject:content.recipients]);
+    && [FBSDKInternalUtility object:_data isEqualToObject:content.data]
+    && [FBSDKInternalUtility object:_message isEqualToObject:content.message]
+    && [FBSDKInternalUtility object:_objectID isEqualToObject:content.objectID]
+    && [FBSDKInternalUtility object:_recipientSuggestions isEqualToObject:content.recipientSuggestions]
+    && [FBSDKInternalUtility object:_title isEqualToObject:content.title]
+    && [FBSDKInternalUtility object:_recipients isEqualToObject:content.recipients]);
 }
 
  #pragma mark - NSCoding
@@ -244,7 +242,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  FBSDKGameRequestContent *copy = [FBSDKGameRequestContent new];
+  FBSDKGameRequestContent *copy = [[FBSDKGameRequestContent alloc] init];
   copy->_actionType = _actionType;
   copy->_data = [_data copy];
   copy->_filters = _filters;

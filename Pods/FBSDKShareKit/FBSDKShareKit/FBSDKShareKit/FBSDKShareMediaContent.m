@@ -66,7 +66,7 @@
 - (void)setPeopleIDs:(NSArray *)peopleIDs
 {
   [FBSDKShareUtility assertCollection:peopleIDs ofClass:[NSString class] name:@"peopleIDs"];
-  if (![FBSDKInternalUtility.sharedUtility object:_peopleIDs isEqualToObject:peopleIDs]) {
+  if (![FBSDKInternalUtility object:_peopleIDs isEqualToObject:peopleIDs]) {
     _peopleIDs = [peopleIDs copy];
   }
 }
@@ -74,7 +74,7 @@
 - (void)setMedia:(NSArray<id<FBSDKShareMedia>> *)media
 {
   [FBSDKShareUtility assertCollection:media ofClassStrings:@[NSStringFromClass([FBSDKSharePhoto class]), NSStringFromClass([FBSDKShareVideo class])] name:@"media"];
-  if (![FBSDKInternalUtility.sharedUtility object:_media isEqualToObject:media]) {
+  if (![FBSDKInternalUtility object:_media isEqualToObject:media]) {
     _media = [media copy];
   }
 }
@@ -170,14 +170,14 @@
 - (BOOL)isEqualToShareMediaContent:(FBSDKShareMediaContent *)content
 {
   return (content
-    && [FBSDKInternalUtility.sharedUtility object:_contentURL isEqualToObject:content.contentURL]
-    && [FBSDKInternalUtility.sharedUtility object:_hashtag isEqualToObject:content.hashtag]
-    && [FBSDKInternalUtility.sharedUtility object:_peopleIDs isEqualToObject:content.peopleIDs]
-    && [FBSDKInternalUtility.sharedUtility object:_media isEqualToObject:content.media]
-    && [FBSDKInternalUtility.sharedUtility object:_placeID isEqualToObject:content.placeID]
-    && [FBSDKInternalUtility.sharedUtility object:_ref isEqualToObject:content.ref]
-    && [FBSDKInternalUtility.sharedUtility object:_shareUUID isEqualToObject:content.shareUUID]
-    && [FBSDKInternalUtility.sharedUtility object:_pageID isEqualToObject:content.pageID]);
+    && [FBSDKInternalUtility object:_contentURL isEqualToObject:content.contentURL]
+    && [FBSDKInternalUtility object:_hashtag isEqualToObject:content.hashtag]
+    && [FBSDKInternalUtility object:_peopleIDs isEqualToObject:content.peopleIDs]
+    && [FBSDKInternalUtility object:_media isEqualToObject:content.media]
+    && [FBSDKInternalUtility object:_placeID isEqualToObject:content.placeID]
+    && [FBSDKInternalUtility object:_ref isEqualToObject:content.ref]
+    && [FBSDKInternalUtility object:_shareUUID isEqualToObject:content.shareUUID]
+    && [FBSDKInternalUtility object:_pageID isEqualToObject:content.pageID]);
 }
 
 #pragma mark - NSCoding
@@ -219,7 +219,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  FBSDKShareMediaContent *copy = [FBSDKShareMediaContent new];
+  FBSDKShareMediaContent *copy = [[FBSDKShareMediaContent alloc] init];
   copy->_contentURL = [_contentURL copy];
   copy->_hashtag = [_hashtag copy];
   copy->_peopleIDs = [_peopleIDs copy];

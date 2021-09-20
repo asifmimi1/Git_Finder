@@ -39,7 +39,7 @@ NSString *const kFBSDKSharePhotoCaptionKey = @"caption";
 
 + (instancetype)photoWithImage:(UIImage *)image userGenerated:(BOOL)userGenerated
 {
-  FBSDKSharePhoto *photo = [self new];
+  FBSDKSharePhoto *photo = [[self alloc] init];
   photo.image = image;
   photo.userGenerated = userGenerated;
   return photo;
@@ -47,7 +47,7 @@ NSString *const kFBSDKSharePhotoCaptionKey = @"caption";
 
 + (instancetype)photoWithImageURL:(NSURL *)imageURL userGenerated:(BOOL)userGenerated
 {
-  FBSDKSharePhoto *photo = [self new];
+  FBSDKSharePhoto *photo = [[self alloc] init];
   photo.imageURL = imageURL;
   photo.userGenerated = userGenerated;
   return photo;
@@ -55,7 +55,7 @@ NSString *const kFBSDKSharePhotoCaptionKey = @"caption";
 
 + (instancetype)photoWithPhotoAsset:(PHAsset *)photoAsset userGenerated:(BOOL)userGenerated
 {
-  FBSDKSharePhoto *photo = [self new];
+  FBSDKSharePhoto *photo = [[self alloc] init];
   photo.photoAsset = photoAsset;
   photo.userGenerated = userGenerated;
   return photo;
@@ -113,10 +113,10 @@ NSString *const kFBSDKSharePhotoCaptionKey = @"caption";
 {
   return (photo
     && (_userGenerated == photo.userGenerated)
-    && [FBSDKInternalUtility.sharedUtility object:_image isEqualToObject:photo.image]
-    && [FBSDKInternalUtility.sharedUtility object:_imageURL isEqualToObject:photo.imageURL]
-    && [FBSDKInternalUtility.sharedUtility object:_photoAsset isEqualToObject:photo.photoAsset]
-    && [FBSDKInternalUtility.sharedUtility object:_caption isEqualToObject:photo.caption]);
+    && [FBSDKInternalUtility object:_image isEqualToObject:photo.image]
+    && [FBSDKInternalUtility object:_imageURL isEqualToObject:photo.imageURL]
+    && [FBSDKInternalUtility object:_photoAsset isEqualToObject:photo.photoAsset]
+    && [FBSDKInternalUtility object:_caption isEqualToObject:photo.caption]);
 }
 
 #pragma mark - FBSDKSharingValidation
@@ -221,7 +221,7 @@ NSString *const kFBSDKSharePhotoCaptionKey = @"caption";
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  FBSDKSharePhoto *copy = [FBSDKSharePhoto new];
+  FBSDKSharePhoto *copy = [[FBSDKSharePhoto alloc] init];
   copy->_image = [_image copy];
   copy->_imageURL = [_imageURL copy];
   copy->_photoAsset = [_photoAsset copy];

@@ -25,8 +25,6 @@
 #else
  #import "FBSDKCoreKit+Internal.h"
 #endif
-
-#import "FBSDKCoreKitBasicsImportForShareKit.h"
 #import "FBSDKShareConstants.h"
 #import "FBSDKShareLinkContent.h"
 
@@ -148,7 +146,7 @@
   NSMutableDictionary<NSString *, id> *parameters = nil;
   if ([content isKindOfClass:[FBSDKShareLinkContent class]]) {
     FBSDKShareLinkContent *linkContent = (FBSDKShareLinkContent *)content;
-    parameters = [NSMutableDictionary new];
+    parameters = [[NSMutableDictionary alloc] init];
     [FBSDKTypeUtility dictionary:parameters setObject:linkContent.contentURL forKey:@"link"];
     [FBSDKTypeUtility dictionary:parameters setObject:linkContent.quote forKey:@"quote"];
     [FBSDKTypeUtility dictionary:parameters setObject:[self hashtagStringFromHashtag:linkContent.hashtag] forKey:@"hashtag"];
@@ -167,9 +165,8 @@
   if (hashtag.isValid) {
     return hashtag.stringRepresentation;
   } else {
-    NSString *msg = [NSString stringWithFormat:@"Invalid hashtag: '%@'", hashtag.stringRepresentation];
     [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
-                           logEntry:msg];
+                       formatString:@"Invalid hashtag: '%@'", hashtag.stringRepresentation];
     return nil;
   }
 }
@@ -197,7 +194,7 @@
                                               bridgeOptions:(FBSDKShareBridgeOptions)bridgeOptions
                                       shouldFailOnDataError:(BOOL)shouldFailOnDataError
 {
-  NSMutableDictionary<NSString *, id> *parameters = [NSMutableDictionary new];
+  NSMutableDictionary<NSString *, id> *parameters = [[NSMutableDictionary alloc] init];
 
   // FBSDKSharingContent parameters
   NSString *const hashtagString = [self hashtagStringFromHashtag:shareContent.hashtag];
@@ -266,6 +263,19 @@
   }
 }
 
++ (BOOL)validateAssetLibraryURLsWithShareMediaContent:(FBSDKShareMediaContent *)mediaContent name:(NSString *)name error:(NSError *__autoreleasing *)errorRef
+{
+  for (id media in mediaContent.media) {
+    if ([media isKindOfClass:[FBSDKShareVideo class]]) {
+      FBSDKShareVideo *video = (FBSDKShareVideo *)media;
+      if (![self _validateAssetLibraryVideoURL:video.videoURL name:name error:errorRef]) {
+        return NO;
+      }
+    }
+  }
+  return YES;
+}
+
 + (BOOL)validateShareContent:(id<FBSDKSharingContent>)shareContent
                bridgeOptions:(FBSDKShareBridgeOptions)bridgeOptions
                        error:(NSError *__autoreleasing *)errorRef
@@ -300,7 +310,7 @@
   if ([object isKindOfClass:[FBSDKSharePhoto class]]) {
     object = [self convertPhoto:(FBSDKSharePhoto *)object];
   } else if ([object isKindOfClass:[NSArray class]]) {
-    NSMutableArray *array = [NSMutableArray new];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
     for (id item in (NSArray *)object) {
       [FBSDKTypeUtility array:array addObject:[self _convertObject:item]];
     }
@@ -314,7 +324,7 @@
   if (!photo) {
     return nil;
   }
-  NSMutableDictionary<NSString *, id> *dictionary = [NSMutableDictionary new];
+  NSMutableDictionary<NSString *, id> *dictionary = [[NSMutableDictionary alloc] init];
   [FBSDKTypeUtility dictionary:dictionary setObject:@(photo.userGenerated) forKey:@"user_generated"];
   [FBSDKTypeUtility dictionary:dictionary setObject:photo.caption forKey:@"caption"];
 
@@ -336,7 +346,7 @@
       FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/staging_resources"
                                                                      parameters:stagingParameters
                                                                      HTTPMethod:@"POST"];
-      [request startWithCompletion:^(id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {
+      [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         NSString *photoStagedURI = result[@"uri"];
         if (photoStagedURI != nil) {
           [FBSDKTypeUtility array:stagedURIs addObject:photoStagedURI];
@@ -457,7 +467,7 @@
 
 + (BOOL)validateNetworkURL:(NSURL *)URL name:(NSString *)name error:(NSError *__autoreleasing *)errorRef
 {
-  if (!URL || [FBSDKInternalUtility.sharedUtility isBrowserURL:URL]) {
+  if (!URL || [FBSDKInternalUtility isBrowserURL:URL]) {
     if (errorRef != NULL) {
       *errorRef = nil;
     }

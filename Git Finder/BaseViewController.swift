@@ -16,6 +16,7 @@ import SVProgressHUD
 import FireworkVideo
 import FBSDKCoreKit
 import Firebase
+import FBSDKCoreKit
 
 class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
@@ -34,22 +35,32 @@ class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UI
         navigationItem.rightBarButtonItem = editButton
         
         //MARK: Facebook Events
+        Settings.setAdvertiserTrackingEnabled(true)
         AppEvents.logEvent(.viewedContent)
-        AppEvents.logEvent(AppEvents.Name(rawValue: "Test_Event"), parameters: ["test_event": "1"])
+        AppEvents.logEvent(AppEvents.Name(rawValue: "Test_Event_new"), parameters: ["test_event_new": "2"])
         
         //MARK: Firebase Events
         let timestamp = NSDate().timeIntervalSince1970
         let timeInterval = TimeInterval(timestamp)
         let time = NSDate(timeIntervalSince1970: TimeInterval(timeInterval))
-        Analytics.logEvent("Git Finder Launched", parameters: ["Time" : "\(time)"])
+//        Analytics.logEvent("Git Finder Launched", parameters: ["Time" : "\(time)"])
         
 //        let id = UIDevice.current.identifierForVendor?.uuidString
 //        print(id! as Any)
+        
+        
+        let name = "Asif"
+        let parameters: [String: Any] = [
+            "asif": "asif"
+        ]
+
+        let event = AppEvents.Name(name)
+        AppEvents.logEvent(event, parameters: parameters)
     }
     
     @IBAction func crashButtonTapped(_ sender: AnyObject) {
-                        let numbers = [0]
-                        let _ = numbers[1]
+//                        let numbers = [0]
+//                        let _ = numbers[1]
 //        imagePickerController.sourceType = .photoLibrary
 //        imagePickerController.delegate = self
 //        imagePickerController.mediaTypes = ["public.image", "public.movie"]
@@ -106,10 +117,11 @@ class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UI
 //        gitFinderTableView.setEditing(!gitFinderTableView.isEditing, animated: true)
 //        navigationItem.rightBarButtonItem?.title = gitFinderTableView.isEditing ? "Done" : "Edit"
         
-        let goToVideoFeedViewController = storyboard?.instantiateViewController(identifier: "FireworkVideoVC") as? FireworkVideoVC
-        self.navigationController?.pushViewController(goToVideoFeedViewController!,animated: true)
+//        let goToVideoFeedViewController = storyboard?.instantiateViewController(identifier: "FireworkVideoVC") as? FireworkVideoVC
+//        self.navigationController?.pushViewController(goToVideoFeedViewController!,animated: true)
 
-        
+        let goToVideoFeedViewController = storyboard?.instantiateViewController(identifier: "LineChartViewController") as? LineChartViewController
+        self.navigationController?.pushViewController(goToVideoFeedViewController!,animated: true)
     }
         
     func alamoFireRequest(requestURL: String) {

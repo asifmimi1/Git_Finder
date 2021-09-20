@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0149284C26C41804009A12B8 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0149284B26C41804009A12B8 /* FacebookCore */; };
-		0149284E26C41804009A12B8 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 0149284D26C41804009A12B8 /* FacebookLogin */; };
-		0149285026C41804009A12B8 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 0149284F26C41804009A12B8 /* FacebookShare */; };
 		01A8BF2326C2CF62006DFC32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01A8BF2226C2CF61006DFC32 /* GoogleService-Info.plist */; };
 		01F747D626B9896900A28CF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F747D526B9896900A28CF8 /* AppDelegate.swift */; };
 		01F747D826B9896900A28CF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F747D726B9896900A28CF8 /* SceneDelegate.swift */; };
@@ -19,7 +16,8 @@
 		01F747E226B9896E00A28CF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F747E026B9896E00A28CF8 /* LaunchScreen.storyboard */; };
 		01F747F126B98A4C00A28CF8 /* RepoCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F747F026B98A4C00A28CF8 /* RepoCellTVC.swift */; };
 		01F747F526B98AA900A28CF8 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F747F426B98AA900A28CF8 /* DataModel.swift */; };
-		6A163B30CCE92D79BD2D6656 /* Pods_Git_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE28ED34A44B24DE04ACB46E /* Pods_Git_Finder.framework */; };
+		A1F72EB944CDA4D0648FB5A4 /* Pods_Git_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05040C8A87EEBA7DF6D03E66 /* Pods_Git_Finder.framework */; };
+		B15228EF26F84DA100AE1BE8 /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15228EE26F84DA100AE1BE8 /* PieChartViewController.swift */; };
 		B1780D2B26D222A600E865A0 /* FireworkVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1780D2A26D222A600E865A0 /* FireworkVideoVC.swift */; };
 		B1780D2D26D24B9300E865A0 /* VideoFeedLayoutTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1780D2C26D24B9300E865A0 /* VideoFeedLayoutTypes.swift */; };
 		B19C57B626F3516C00355B8B /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C57B526F3516C00355B8B /* BalloonMarker.swift */; };
@@ -38,13 +36,14 @@
 		01F747E326B9896E00A28CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01F747F026B98A4C00A28CF8 /* RepoCellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellTVC.swift; sourceTree = "<group>"; };
 		01F747F426B98AA900A28CF8 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		0EF0636032433DB0B3C66C14 /* Pods-Git Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.release.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.release.xcconfig"; sourceTree = "<group>"; };
-		2EF0894F916947A76853F0A0 /* Pods-Git Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.debug.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.debug.xcconfig"; sourceTree = "<group>"; };
+		05040C8A87EEBA7DF6D03E66 /* Pods_Git_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Git_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		062D858D78F75E5E2EEBE73C /* Pods-Git Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.release.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.release.xcconfig"; sourceTree = "<group>"; };
+		55A20338B1B426C840654E08 /* Pods-Git Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Finder.debug.xcconfig"; path = "Target Support Files/Pods-Git Finder/Pods-Git Finder.debug.xcconfig"; sourceTree = "<group>"; };
+		B15228EE26F84DA100AE1BE8 /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		B1780D2A26D222A600E865A0 /* FireworkVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworkVideoVC.swift; sourceTree = "<group>"; };
 		B1780D2C26D24B9300E865A0 /* VideoFeedLayoutTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFeedLayoutTypes.swift; sourceTree = "<group>"; };
 		B19C57B526F3516C00355B8B /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BalloonMarker.swift; path = ../../../BalloonMarker.swift; sourceTree = "<group>"; };
 		B1EB2D9C26F1F70300E850C1 /* LineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
-		DE28ED34A44B24DE04ACB46E /* Pods_Git_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Git_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,10 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0149284C26C41804009A12B8 /* FacebookCore in Frameworks */,
-				0149285026C41804009A12B8 /* FacebookShare in Frameworks */,
-				0149284E26C41804009A12B8 /* FacebookLogin in Frameworks */,
-				6A163B30CCE92D79BD2D6656 /* Pods_Git_Finder.framework in Frameworks */,
+				A1F72EB944CDA4D0648FB5A4 /* Pods_Git_Finder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +64,7 @@
 				01F747D426B9896900A28CF8 /* Git Finder */,
 				01F747D326B9896900A28CF8 /* Products */,
 				44BFA086D050575873BC4CE3 /* Pods */,
-				9DBCE5783F0D3D50C6E895B3 /* Frameworks */,
+				EB97A9207315796D08E7C6D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +98,7 @@
 				01F747D926B9896900A28CF8 /* BaseViewController.swift */,
 				B1780D2A26D222A600E865A0 /* FireworkVideoVC.swift */,
 				B1EB2D9C26F1F70300E850C1 /* LineChartViewController.swift */,
+				B15228EE26F84DA100AE1BE8 /* PieChartViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -144,16 +141,16 @@
 		44BFA086D050575873BC4CE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2EF0894F916947A76853F0A0 /* Pods-Git Finder.debug.xcconfig */,
-				0EF0636032433DB0B3C66C14 /* Pods-Git Finder.release.xcconfig */,
+				55A20338B1B426C840654E08 /* Pods-Git Finder.debug.xcconfig */,
+				062D858D78F75E5E2EEBE73C /* Pods-Git Finder.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		9DBCE5783F0D3D50C6E895B3 /* Frameworks */ = {
+		EB97A9207315796D08E7C6D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DE28ED34A44B24DE04ACB46E /* Pods_Git_Finder.framework */,
+				05040C8A87EEBA7DF6D03E66 /* Pods_Git_Finder.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,24 +162,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01F747E626B9896E00A28CF8 /* Build configuration list for PBXNativeTarget "Git Finder" */;
 			buildPhases = (
-				D82F7C14E517537DB2FB3164 /* [CP] Check Pods Manifest.lock */,
+				F3DD06AF2502008F20373EB6 /* [CP] Check Pods Manifest.lock */,
 				01F747CE26B9896900A28CF8 /* Sources */,
 				01F747CF26B9896900A28CF8 /* Frameworks */,
 				01F747D026B9896900A28CF8 /* Resources */,
 				01120E5926BAFACF0009646D /* ShellScript */,
 				B193B81026D3C78F00399187 /* ShellScript */,
-				955EC96A82E6E3E2121889F3 /* [CP] Embed Pods Frameworks */,
+				A07E5157F73C8E9AC70F9895 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Git Finder";
-			packageProductDependencies = (
-				0149284B26C41804009A12B8 /* FacebookCore */,
-				0149284D26C41804009A12B8 /* FacebookLogin */,
-				0149284F26C41804009A12B8 /* FacebookShare */,
-			);
 			productName = "Git Finder";
 			productReference = 01F747D226B9896900A28CF8 /* Git Finder.app */;
 			productType = "com.apple.product-type.application";
@@ -210,9 +202,6 @@
 				Base,
 			);
 			mainGroup = 01F747C926B9896900A28CF8;
-			packageReferences = (
-				0149284A26C41804009A12B8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
-			);
 			productRefGroup = 01F747D326B9896900A28CF8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,7 +246,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		955EC96A82E6E3E2121889F3 /* [CP] Embed Pods Frameworks */ = {
+		A07E5157F73C8E9AC70F9895 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -293,7 +282,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		D82F7C14E517537DB2FB3164 /* [CP] Check Pods Manifest.lock */ = {
+		F3DD06AF2502008F20373EB6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -328,6 +317,7 @@
 				B19C57B626F3516C00355B8B /* BalloonMarker.swift in Sources */,
 				B1780D2B26D222A600E865A0 /* FireworkVideoVC.swift in Sources */,
 				01F747DA26B9896900A28CF8 /* BaseViewController.swift in Sources */,
+				B15228EF26F84DA100AE1BE8 /* PieChartViewController.swift in Sources */,
 				01F747D626B9896900A28CF8 /* AppDelegate.swift in Sources */,
 				01F747D826B9896900A28CF8 /* SceneDelegate.swift in Sources */,
 				01F747F126B98A4C00A28CF8 /* RepoCellTVC.swift in Sources */,
@@ -474,7 +464,7 @@
 		};
 		01F747E726B9896E00A28CF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EF0894F916947A76853F0A0 /* Pods-Git Finder.debug.xcconfig */;
+			baseConfigurationReference = 55A20338B1B426C840654E08 /* Pods-Git Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -497,7 +487,7 @@
 		};
 		01F747E826B9896E00A28CF8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0EF0636032433DB0B3C66C14 /* Pods-Git Finder.release.xcconfig */;
+			baseConfigurationReference = 062D858D78F75E5E2EEBE73C /* Pods-Git Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -540,35 +530,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0149284A26C41804009A12B8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.1.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0149284B26C41804009A12B8 /* FacebookCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0149284A26C41804009A12B8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		0149284D26C41804009A12B8 /* FacebookLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0149284A26C41804009A12B8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookLogin;
-		};
-		0149284F26C41804009A12B8 /* FacebookShare */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0149284A26C41804009A12B8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookShare;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 01F747CA26B9896900A28CF8 /* Project object */;
 }

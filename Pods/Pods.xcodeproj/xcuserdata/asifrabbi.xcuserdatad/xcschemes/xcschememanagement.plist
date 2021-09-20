@@ -29,22 +29,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FBAEMKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FBSDKCoreKit-FacebookSDKStrings.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FBSDKCoreKit_Basics.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

@@ -39,7 +39,7 @@
   NSLocalizedStringWithDefaultValue(
     @"LoginTooltip.Message",
     @"FacebookSDK",
-    [FBSDKInternalUtility.sharedUtility bundleForStrings],
+    [FBSDKInternalUtility bundleForStrings],
     @"You're in control - choose what info you want to share with apps.",
     @"The message of the FBSDKLoginTooltipView"
   );

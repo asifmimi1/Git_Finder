@@ -16,12 +16,6 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#if !TARGET_OS_TV
-
-#if BUCK
-import FacebookCore
-#endif
-
 import FBSDKCoreKit
 
 import UIKit
@@ -174,11 +168,9 @@ public extension LoginManager {
   }
 
   private func convertedResultHandler(_ original: @escaping LoginResultBlock) -> LoginManagerLoginResultBlock {
-    { (result: LoginManagerLoginResult?, error: Error?) in
+    return { (result: LoginManagerLoginResult?, error: Error?) in
       let result = LoginResult(result: result, error: error)
       original(result)
     }
   }
 }
-
-#endif

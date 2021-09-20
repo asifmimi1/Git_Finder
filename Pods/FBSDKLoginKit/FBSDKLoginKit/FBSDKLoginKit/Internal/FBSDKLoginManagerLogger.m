@@ -22,11 +22,14 @@
 
  #import "FBSDKLoginManagerLogger.h"
 
- #import "FBSDKCoreKitBasicsImportForLoginKit.h"
+ #ifdef FBSDKCOCOAPODS
+  #import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
+ #else
+  #import "FBSDKCoreKit+Internal.h"
+ #endif
  #import "FBSDKLoginError.h"
  #import "FBSDKLoginManagerLoginResult+Internal.h"
  #import "FBSDKLoginUtility.h"
- #import "FBSDKMonotonicTime.h"
 
 NSString *const FBSDKLoginManagerLoggerAuthMethod_Native = @"fb_application_web_auth";
 NSString *const FBSDKLoginManagerLoggerAuthMethod_Browser = @"browser_auth";
@@ -54,24 +57,6 @@ static NSString *const FBSDKLoginManagerLoggerResultSkippedString = @"skipped";
 
 static NSString *const FBSDKLoginManagerLoggerTryNative = @"tryFBAppAuth";
 static NSString *const FBSDKLoginManagerLoggerTryBrowser = @"trySafariAuth";
-
-/** Use to log the result of the App Switch OS AlertView. Only available on OS >= iOS10 */
-FBSDKAppEventName const FBSDKAppEventNameFBSessionFASLoginDialogResult = @"fb_mobile_login_fas_dialog_result";
-
-/** Use to log the start of an auth request that cannot be fulfilled by the token cache */
-FBSDKAppEventName const FBSDKAppEventNameFBSessionAuthStart = @"fb_mobile_login_start";
-
-/** Use to log the end of an auth request that was not fulfilled by the token cache */
-FBSDKAppEventName const FBSDKAppEventNameFBSessionAuthEnd = @"fb_mobile_login_complete";
-
-/** Use to log the start of a specific auth method as part of an auth request */
-FBSDKAppEventName const FBSDKAppEventNameFBSessionAuthMethodStart = @"fb_mobile_login_method_start";
-
-/** Use to log the end of the last tried auth method as part of an auth request */
-FBSDKAppEventName const FBSDKAppEventNameFBSessionAuthMethodEnd = @"fb_mobile_login_method_complete";
-
-/** Use to log the post-login heartbeat event after  the end of an auth request*/
-FBSDKAppEventName const FBSDKAppEventNameFBSessionAuthHeartbeat = @"fb_mobile_login_heartbeat";
 
 @implementation FBSDKLoginManagerLogger
 {
@@ -144,9 +129,7 @@ FBSDKAppEventName const FBSDKAppEventNameFBSessionAuthHeartbeat = @"fb_mobile_lo
 - (void)endSession
 {
   [self logEvent:FBSDKAppEventNameFBSessionAuthEnd result:_lastResult error:_lastError];
-  if (FBSDKAppEvents.flushBehavior != FBSDKAppEventsFlushBehaviorExplicitOnly) {
-    [FBSDKAppEvents flush];
-  }
+  [FBSDKAppEvents flush];
 }
 
 - (void)startAuthMethod:(NSString *)authMethod
@@ -213,10 +196,10 @@ FBSDKAppEventName const FBSDKAppEventNameFBSessionAuthHeartbeat = @"fb_mobile_lo
 - (void)willAttemptAppSwitchingBehavior
 {
   NSString *defaultUrlScheme = [NSString stringWithFormat:@"fb%@%@", [FBSDKSettings appID], [FBSDKSettings appURLSchemeSuffix] ?: @""];
-  BOOL isURLSchemeRegistered = [FBSDKInternalUtility.sharedUtility isRegisteredURLScheme:defaultUrlScheme];
+  BOOL isURLSchemeRegistered = [FBSDKInternalUtility isRegisteredURLScheme:defaultUrlScheme];
 
-  BOOL isFacebookAppCanOpenURLSchemeRegistered = [FBSDKInternalUtility.sharedUtility isRegisteredCanOpenURLScheme:FBSDK_CANOPENURL_FACEBOOK];
-  BOOL isMessengerAppCanOpenURLSchemeRegistered = [FBSDKInternalUtility.sharedUtility isRegisteredCanOpenURLScheme:FBSDK_CANOPENURL_MESSENGER];
+  BOOL isFacebookAppCanOpenURLSchemeRegistered = [FBSDKInternalUtility isRegisteredCanOpenURLScheme:FBSDK_CANOPENURL_FACEBOOK];
+  BOOL isMessengerAppCanOpenURLSchemeRegistered = [FBSDKInternalUtility isRegisteredCanOpenURLScheme:FBSDK_CANOPENURL_MESSENGER];
 
   [_extras addEntriesFromDictionary:@{
      @"isURLSchemeRegistered" : @(isURLSchemeRegistered),
@@ -268,7 +251,7 @@ FBSDKAppEventName const FBSDKAppEventNameFBSessionAuthHeartbeat = @"fb_mobile_lo
 
 - (NSMutableDictionary *)_parametersForNewEvent
 {
-  NSMutableDictionary *eventParameters = [NSMutableDictionary new];
+  NSMutableDictionary *eventParameters = [[NSMutableDictionary alloc] init];
 
   // NOTE: We ALWAYS add all params to each event, to ensure predictable mapping on the backend.
   [FBSDKTypeUtility dictionary:eventParameters setObject:_identifier ?: FBSDKLoginManagerLoggerValueEmpty forKey:FBSDKLoginManagerLoggerParamIdentifierKey];

@@ -81,8 +81,8 @@ NSString *NSStringFromFBSDKAppGroupPrivacy(FBSDKAppGroupPrivacy privacy)
 {
   return (content
     && (_privacy == content.privacy)
-    && [FBSDKInternalUtility.sharedUtility object:_name isEqualToObject:content.name]
-    && [FBSDKInternalUtility.sharedUtility object:_groupDescription isEqualToObject:content.groupDescription]);
+    && [FBSDKInternalUtility object:_name isEqualToObject:content.name]
+    && [FBSDKInternalUtility object:_groupDescription isEqualToObject:content.groupDescription]);
 }
 
  #pragma mark - NSCoding
@@ -114,7 +114,7 @@ NSString *NSStringFromFBSDKAppGroupPrivacy(FBSDKAppGroupPrivacy privacy)
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  FBSDKAppGroupContent *copy = [FBSDKAppGroupContent new];
+  FBSDKAppGroupContent *copy = [[FBSDKAppGroupContent alloc] init];
   copy->_groupDescription = [_groupDescription copy];
   copy->_name = [_name copy];
   copy->_privacy = _privacy;

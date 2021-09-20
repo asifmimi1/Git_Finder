@@ -32,6 +32,7 @@ public protocol VideoFeedViewControllerDelegate : AnyObject {
   weak public var delegate: FireworkVideo.VideoFeedViewControllerDelegate?
   public init(layout: FireworkVideo.VideoFeedLayout = VideoFeedHorizontalLayout(), source: FireworkVideo.VideoFeedContentSource = .discover)
   @objc override dynamic public func viewDidLoad()
+  public func refresh()
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @objc deinit
 }
@@ -138,8 +139,8 @@ public protocol FireworkVideoFeedDelegate : AnyObject {
   @objc deinit
 }
 extension VideoFeedViewController {
-  public static func openVideoPlayer(with url: Foundation.URL, _ viewController: UIKit.UIViewController, _ completion: @escaping (Swift.Result<FireworkVideo.VideoFeedViewController, FireworkVideo.VideoFeedError>) -> Swift.Void)
-  public static func openVideoPlayer(with encodedParam: Swift.String, _ viewController: UIKit.UIViewController, _ completion: @escaping (Swift.Result<FireworkVideo.VideoFeedViewController, FireworkVideo.VideoFeedError>) -> Swift.Void)
+  public static func openVideoPlayer(with url: Foundation.URL, _ playerConfiguration: FireworkVideo.VideoPlayerContentConfiguration = VideoPlayerContentConfiguration(), _ viewController: UIKit.UIViewController, _ completion: @escaping (Swift.Result<FireworkVideo.VideoFeedViewController, FireworkVideo.VideoFeedError>) -> Swift.Void)
+  public static func openVideoPlayer(with encodedParam: Swift.String, _ playerConfiguration: FireworkVideo.VideoPlayerContentConfiguration = VideoPlayerContentConfiguration(), _ viewController: UIKit.UIViewController, _ completion: @escaping (Swift.Result<FireworkVideo.VideoFeedViewController, FireworkVideo.VideoFeedError>) -> Swift.Void)
 }
 public enum FireworkVideoSDKError : Foundation.LocalizedError, Swift.CustomStringConvertible {
   case missingAppID
@@ -170,6 +171,7 @@ public enum FireworkVideoSDKError : Foundation.LocalizedError, Swift.CustomStrin
   @objc deinit
 }
 public enum Localization {
+  public static let ctaShopNow: Swift.String
   public static let ctaBook: Swift.String
   public static let ctaBuy: Swift.String
   public static let ctaDownload: Swift.String

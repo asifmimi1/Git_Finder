@@ -33,7 +33,6 @@
  #import "FBSDKAppInviteContent.h"
  #import "FBSDKGameRequestContent.h"
  #import "FBSDKGameRequestDialog.h"
- #import "FBSDKGameRequestURLProvider.h"
  #import "FBSDKLikeObjectType.h"
  #import "FBSDKLiking.h"
  #import "FBSDKMessageDialog.h"

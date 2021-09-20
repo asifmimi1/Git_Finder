@@ -22,15 +22,13 @@
 
  #import "FBSDKShareCameraEffectContent.h"
 
+ #import "FBSDKCameraEffectArguments+Internal.h"
+ #import "FBSDKCameraEffectTextures+Internal.h"
  #ifdef FBSDKCOCOAPODS
   #import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
  #else
   #import "FBSDKCoreKit+Internal.h"
  #endif
-
- #import "FBSDKCameraEffectArguments+Internal.h"
- #import "FBSDKCameraEffectTextures+Internal.h"
- #import "FBSDKCoreKitBasicsImportForShareKit.h"
  #import "FBSDKHashtag.h"
  #import "FBSDKShareUtility.h"
 
@@ -122,7 +120,7 @@ static NSString *const kFBSDKShareCameraEffectContentUUIDKey = @"uuid";
 - (NSString *)schemeForMode:(FBSDKShareDialogMode)mode
 {
   if ((FBSDKShareDialogModeNative == mode) || (FBSDKShareDialogModeAutomatic == mode)) {
-    if ([FBSDKInternalUtility.sharedUtility isMSQRDPlayerAppInstalled]) {
+    if ([FBSDKInternalUtility isMSQRDPlayerAppInstalled]) {
       // If installed, launch MSQRD Player for testing effects.
       return FBSDK_CANOPENURL_MSQRD_PLAYER;
     }
@@ -182,16 +180,16 @@ static NSString *const kFBSDKShareCameraEffectContentUUIDKey = @"uuid";
 - (BOOL)isEqualToShareCameraEffectContent:(FBSDKShareCameraEffectContent *)content
 {
   return (content
-    && [FBSDKInternalUtility.sharedUtility object:_effectID isEqualToObject:content.effectID]
-    && [FBSDKInternalUtility.sharedUtility object:_effectArguments isEqualToObject:content.effectArguments]
-    && [FBSDKInternalUtility.sharedUtility object:_effectTextures isEqualToObject:content.effectTextures]
-    && [FBSDKInternalUtility.sharedUtility object:_contentURL isEqualToObject:content.contentURL]
-    && [FBSDKInternalUtility.sharedUtility object:_hashtag isEqualToObject:content.hashtag]
-    && [FBSDKInternalUtility.sharedUtility object:_peopleIDs isEqualToObject:content.peopleIDs]
-    && [FBSDKInternalUtility.sharedUtility object:_placeID isEqualToObject:content.placeID]
-    && [FBSDKInternalUtility.sharedUtility object:_ref isEqualToObject:content.ref]
-    && [FBSDKInternalUtility.sharedUtility object:_shareUUID isEqualToObject:content.shareUUID]
-    && [FBSDKInternalUtility.sharedUtility object:_pageID isEqualToObject:content.pageID]);
+    && [FBSDKInternalUtility object:_effectID isEqualToObject:content.effectID]
+    && [FBSDKInternalUtility object:_effectArguments isEqualToObject:content.effectArguments]
+    && [FBSDKInternalUtility object:_effectTextures isEqualToObject:content.effectTextures]
+    && [FBSDKInternalUtility object:_contentURL isEqualToObject:content.contentURL]
+    && [FBSDKInternalUtility object:_hashtag isEqualToObject:content.hashtag]
+    && [FBSDKInternalUtility object:_peopleIDs isEqualToObject:content.peopleIDs]
+    && [FBSDKInternalUtility object:_placeID isEqualToObject:content.placeID]
+    && [FBSDKInternalUtility object:_ref isEqualToObject:content.ref]
+    && [FBSDKInternalUtility object:_shareUUID isEqualToObject:content.shareUUID]
+    && [FBSDKInternalUtility object:_pageID isEqualToObject:content.pageID]);
 }
 
  #pragma mark - NSCoding
@@ -236,7 +234,7 @@ static NSString *const kFBSDKShareCameraEffectContentUUIDKey = @"uuid";
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  FBSDKShareCameraEffectContent *copy = [FBSDKShareCameraEffectContent new];
+  FBSDKShareCameraEffectContent *copy = [[FBSDKShareCameraEffectContent alloc] init];
   copy->_effectID = [_effectID copy];
   copy->_effectArguments = [_effectArguments copy];
   copy->_effectTextures = [_effectTextures copy];

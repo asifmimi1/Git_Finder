@@ -6,15 +6,15 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		WZ17pZrMuJITKRyt3VDFo7cja3M=
+		KUTZ3Xn5YtVIWp1dwS8EnP1mLnc=
 		</data>
 		<key>Base.lproj/Localizable.strings</key>
 		<data>
-		0f1/HpaFWM67D3thG0Asm5/lNuo=
+		GWXrn6P+m/5eS7Jp3eyd/2SKvwo=
 		</data>
 		<key>CompactVideoInfoView.nib</key>
 		<data>
-		qadN23pvSJhDqoTOZECWDpbgb6E=
+		zxbBR3h3QUBovaFpjw2QRC6fQME=
 		</data>
 		<key>Headers/FireworkVideo-Swift.h</key>
 		<data>
@@ -22,55 +22,55 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		7pFJU6MKtQ84XULuicVQ1nqFzKU=
+		W6Vhi2HEpEEkGdUjq5EetI1O5Ys=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		SQUQD8TvPUbXOS9WoYUeeLO94wc=
+		GTOODU1vWAEefnuyafmX60q54Xc=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		YknfRPwKeMiQ8I8yaABoHQyDHIk=
+		f/K6zO51L86kei0+90VtNfMESn0=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Pz1ejCNsNHc8hxsk5dKgQc5xQv0=
+		RcfMHod+stn0A1CZJRxWsMRck7E=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		SQUQD8TvPUbXOS9WoYUeeLO94wc=
+		GTOODU1vWAEefnuyafmX60q54Xc=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		YknfRPwKeMiQ8I8yaABoHQyDHIk=
+		f/K6zO51L86kei0+90VtNfMESn0=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		Pz1ejCNsNHc8hxsk5dKgQc5xQv0=
+		RcfMHod+stn0A1CZJRxWsMRck7E=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		LvZ4dosVnKOiKvMUHxDBSfvswQc=
+		iSa/aGAF7WxD1CTjkIcJhmdbQmw=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		So+9czWbjl1ED2yQGfZ5jBQuJrY=
+		NEXqCAG5b2sRpein+MmuXubjoyM=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ijtl9eBcTLTHrN2dvtIgkq3Hh0c=
+		1xyd6uso0VDshDUvG6IjWDkXo/M=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		LvZ4dosVnKOiKvMUHxDBSfvswQc=
+		iSa/aGAF7WxD1CTjkIcJhmdbQmw=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		So+9czWbjl1ED2yQGfZ5jBQuJrY=
+		NEXqCAG5b2sRpein+MmuXubjoyM=
 		</data>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		ijtl9eBcTLTHrN2dvtIgkq3Hh0c=
+		1xyd6uso0VDshDUvG6IjWDkXo/M=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -78,33 +78,33 @@
 		</data>
 		<key>RegionRestrictViewCell.nib/objects-12.3+.nib</key>
 		<data>
-		On3qW6frItq2Zrlb0ZlsydoFEh8=
+		fvAVBxeuSH62WolsB5nG5iAeh7o=
 		</data>
 		<key>RegionRestrictViewCell.nib/runtime.nib</key>
 		<data>
-		VqbR1T3cBnkSTsAh2tjtPNOx9kw=
+		vqJisH/pGI+nlaVi3f3Efz9B520=
 		</data>
 		<key>VideoDetailView.nib</key>
 		<data>
-		IgHmJzUa03LBCCXX6oOH/mkik7I=
+		mmNO9gfZjSY8+XIsoAHgHB5iqSs=
 		</data>
 		<key>VideoTopControlView.nib</key>
 		<data>
-		lYLzE8maBCsmaAVEJROF/d+zZo4=
+		dA0TkIJGRFyTGruUNPropjXiCak=
 		</data>
 		<key>VideoViewCell.nib/objects-12.3+.nib</key>
 		<data>
-		1FisRMlZvvb/CASxnJq2is076io=
+		mkp0MQpreZxD+hxDYlDF56JaRBI=
 		</data>
 		<key>VideoViewCell.nib/runtime.nib</key>
 		<data>
-		uqrgSpi5tajEO1C5lOZDAF8VX7A=
+		G6H7cFttS58uf0J8VPpOOfS1qf4=
 		</data>
 		<key>es.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+4Y55J0YGTHQuUpPBcRkaYYLTX8=
+			B1kBhMkdUStVde2968QSyRmp64Q=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -113,7 +113,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			y1Fhnzswdl5laWyYcJWXCnJc/I8=
+			Zn6SiIbNT8YLw0oFYn0ZHquQFKI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -122,7 +122,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KR4evmPm0lK5rUNxWFEA/9aN4Vg=
+			rs74t2MzGKQqetkJe22b3PkvQH4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -131,7 +131,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			69U/UIFHJ1pyJRl6Ewdheg6pKMI=
+			T72ZSefSNG/8wRZFuX7h5clgUqE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -140,7 +140,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tOFIOFJnnX4VNfbGHHVnJlu+PRU=
+			wPBoc6IT54FZi0sCfwa7q1fZDcI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -152,21 +152,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YvRJ5eHQkgMQSdNlMdO7eI1gsxsgKPFdB8FHIwiejtE=
+			1FEwGSV6UDe47ObM/JJOSnZZND5SmNutcLN0Sc3ngak=
 			</data>
 		</dict>
 		<key>Base.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PYpKYS8fsp5u9v7JaI7KsdTenNyU8j8w8lxdtB/8HuM=
+			tQlVB3TEjahZqL4AwHtpzd7jMjLJdsEOcvx2x3da9u4=
 			</data>
 		</dict>
 		<key>CompactVideoInfoView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Fq+Y6zNmV6+s7tRM61t/JcrdSWTdDjeVjbpJcl1zi9A=
+			Elti40KicjOMX7BXot7LvEGUt0fr+QnrH0rPsdr4afA=
 			</data>
 		</dict>
 		<key>Headers/FireworkVideo-Swift.h</key>
@@ -180,84 +180,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kwIvyRf7p/0rFvtBWnqAs2xjtg+ha5qaEapiaCZGsds=
+			d4OrNHoQesgPWxZ0bPqP3dQZfSmgqNTmC/1MPNKf/x0=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nbDEpxYRcOnNbKdnHTLE7zqdvRAe1vZZvPPi0qn1/CA=
+			Ez5f9FV1++pAGcAppgxGXBoaNKwgqSc30jVGPk/rows=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			a7JsfdrzTDJLZLMpP664Tl/6ZpJwSXRH4Ll2/5MPAEk=
+			u651WsTQk4QX7tru6Uui6mDNj9k5oP5/Qjeuoqhj5lw=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kwIvyRf7p/0rFvtBWnqAs2xjtg+ha5qaEapiaCZGsds=
+			d4OrNHoQesgPWxZ0bPqP3dQZfSmgqNTmC/1MPNKf/x0=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nbDEpxYRcOnNbKdnHTLE7zqdvRAe1vZZvPPi0qn1/CA=
+			Ez5f9FV1++pAGcAppgxGXBoaNKwgqSc30jVGPk/rows=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			a7JsfdrzTDJLZLMpP664Tl/6ZpJwSXRH4Ll2/5MPAEk=
+			u651WsTQk4QX7tru6Uui6mDNj9k5oP5/Qjeuoqhj5lw=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			r60wGoZk0Q8eotNzSbps4KKf5yNBjKcULXuIwEz39wU=
+			oxlFGi6VXqd4iuKUoAg7cXvLqdkXeuWMWMVK+2vFYS8=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dqe61wipdRwtBYjYRoyWo2DuiuZ9osZYYGFk5vXGgPM=
+			7qS1GRR/94kzzVrh3IY/HbEP7KrBhgdgi2e4cuv90VM=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			G/srJ6S7zzai60uYM7Fp4mbs/ZTAQ9KEUnRghx0fpMQ=
+			QjnMCJPY2wUsmr3turYv4yb7yT5i+yjzMY0G1UkXDGM=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			r60wGoZk0Q8eotNzSbps4KKf5yNBjKcULXuIwEz39wU=
+			oxlFGi6VXqd4iuKUoAg7cXvLqdkXeuWMWMVK+2vFYS8=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dqe61wipdRwtBYjYRoyWo2DuiuZ9osZYYGFk5vXGgPM=
+			7qS1GRR/94kzzVrh3IY/HbEP7KrBhgdgi2e4cuv90VM=
 			</data>
 		</dict>
 		<key>Modules/FireworkVideo.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			G/srJ6S7zzai60uYM7Fp4mbs/ZTAQ9KEUnRghx0fpMQ=
+			QjnMCJPY2wUsmr3turYv4yb7yT5i+yjzMY0G1UkXDGM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -271,49 +271,49 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kegj+YLKM0e5/j7uiy8Miic4XyHSWzUKVaJUwq57qlc=
+			/lHgt5X8rqNy49+92V8JJ0mjGFLfsz80j7ESbNEGGWs=
 			</data>
 		</dict>
 		<key>RegionRestrictViewCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iHX3JV8j7YhBnLFFLG7hablTnqgHg0EC5quk8w0f+kA=
+			dLZwAkOqQI3SbXnWCe+ddONP+XppDuWJDeANZz2d9E8=
 			</data>
 		</dict>
 		<key>VideoDetailView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			80CJwAysLH6bGBkstBd6wb6zRTs7sGjF3tQaTD4Bacs=
+			xqeiYFBBQv4WCZy+5YD8bLsiB4Rp98UtKEm2pPJoZas=
 			</data>
 		</dict>
 		<key>VideoTopControlView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UPHQgJXCpMs9zsEkQ6tEehd43ZJ8B2hdnlWPP9fEGKo=
+			MazRY5nMsIYoeC9tFsjYG7rWOnqJk/+yHf0kQfO/B9w=
 			</data>
 		</dict>
 		<key>VideoViewCell.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HGdRJwg4SiWh50OXlf4IPNi53txXseNIYqVbWtr3EOs=
+			fjG5QnFTEjz8Ro3kGZSgDjoEU/IjaGsEiHW/Q8Iui+8=
 			</data>
 		</dict>
 		<key>VideoViewCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kDNckN+Yc3fin0uK9dMZXpHGo0nEG3EL0g0i7IVAOX8=
+			S/gXfXHb71AlRUqyicYC3hgu/FmZ6g3KXe4nMem+hZc=
 			</data>
 		</dict>
 		<key>es.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8Cnj3jnA8GL/ntgLO3vmb14lQvbgxRahGtMLQ6IwNpE=
+			oOiG1360u1F5DEdmsMwMusjTK3nfa6JRPJV1BifK5NI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -322,7 +322,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CnvY+h0OCowxC8TOmjiS2I1/td0JFaxJpo8RAlB1FDk=
+			B8bRrm5Tczx6xZzbiWFhKq0DEgwyaiwZzEBWLO5k3bg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -331,7 +331,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1ZpmaOX2YWFOJNiwtWSTCauFy6tbWWHlzZxVQ0tXhbo=
+			+weUlMg4JG3ZOF9PQtLITo/i64xjhscGs8cIgsePi3A=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -340,7 +340,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			B9Bb3D5/hAaQE99J7ctFwOyNzAcvGTV/Nn4ZZ/wDh2w=
+			qZiVjvojvbYvM/BOnbvGIMB8HIz0D1MUwM31Jlrq73Q=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -349,7 +349,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BBV8Kw++9IgFWLcocZJzsU6FL8dAyZLGqmc/Awhwp2k=
+			TSxE45A9qCm41KMwSsE6B7T5sw12DS7c4rl2B450ycU=
 			</data>
 			<key>optional</key>
 			<true/>

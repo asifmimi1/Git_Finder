@@ -22,10 +22,11 @@
 
  #import "FBSDKEventBinding.h"
 
+ #import "FBSDKAppEvents.h"
+ #import "FBSDKAppEventsUtility.h"
+ #import "FBSDKCodelessParameterComponent.h"
  #import "FBSDKCodelessPathComponent.h"
- #import "FBSDKCoreKitBasicsImport.h"
- #import "FBSDKEventLogging.h"
- #import "FBSDKInternalUtility+Internal.h"
+ #import "FBSDKInternalUtility.h"
  #import "FBSDKSwizzler.h"
  #import "FBSDKUtility.h"
  #import "FBSDKViewHierarchy.h"
@@ -36,37 +37,11 @@
  #define CODELESS_CODELESS_EVENT_KEY  @"_is_fb_codeless"
  #define PARAMETER_NAME_PRICE          @"_valueToSum"
 
-@interface FBSDKEventBinding ()
-
-@property (nonnull, nonatomic) id<FBSDKEventLogging> eventLogger;
-
-@end
-
 @implementation FBSDKEventBinding
 
-static id<FBSDKNumberParsing> _numberParser;
-
-+ (id<FBSDKNumberParsing>)numberParser
-{
-  return _numberParser;
-}
-
-+ (void)setNumberParser:(id<FBSDKNumberParsing>)numberParser
-{
-  _numberParser = numberParser;
-}
-
-+ (void)initialize
-{
-  _numberParser = [[FBSDKAppEventsNumberParser alloc] initWithLocale:NSLocale.currentLocale];
-}
-
 - (FBSDKEventBinding *)initWithJSON:(NSDictionary *)dict
-                        eventLogger:(id<FBSDKEventLogging>)eventLogger
 {
   if ((self = [super init])) {
-    _eventLogger = eventLogger;
-
     _eventName = [dict[CODELESS_MAPPING_EVENT_NAME_KEY] copy];
     _eventType = [dict[CODELESS_MAPPING_EVENT_TYPE_KEY] copy];
     _appVersion = [dict[CODELESS_MAPPING_APP_VERSION_KEY] copy];
@@ -105,7 +80,7 @@ static id<FBSDKNumberParsing> _numberParser;
     }
     if (text.length > 0) {
       if ([component.name isEqualToString:PARAMETER_NAME_PRICE]) {
-        NSNumber *value = [self.class.numberParser parseNumberFrom:text];
+        NSNumber *value = [FBSDKAppEventsUtility getNumberValue:text];
         [FBSDKTypeUtility dictionary:params setObject:value forKey:component.name];
       } else {
         [FBSDKTypeUtility dictionary:params setObject:text forKey:component.name];
@@ -113,7 +88,7 @@ static id<FBSDKNumberParsing> _numberParser;
     }
   }
 
-  [self.eventLogger logEvent:_eventName parameters:[params copy]];
+  [FBSDKAppEvents logEvent:_eventName parameters:[params copy]];
 }
 
 + (BOOL)matchAnyView:(NSArray *)views
@@ -130,9 +105,6 @@ static id<FBSDKNumberParsing> _numberParser;
 + (BOOL)  match:(NSObject *)view
   pathComponent:(FBSDKCodelessPathComponent *)component
 {
-  if (!view) {
-    return NO;
-  }
   NSString *className = NSStringFromClass([view class]);
   if (![className isEqualToString:component.className]) {
     return NO;
@@ -190,10 +162,6 @@ static id<FBSDKNumberParsing> _numberParser;
 
 + (BOOL)isPath:(NSArray *)path matchViewPath:(NSArray *)viewPath
 {
-  if ((path.count == 0) || (viewPath.count == 0)) {
-    return NO;
-  }
-
   for (NSInteger i = 0; i < MIN(path.count, viewPath.count); i++) {
     NSInteger idxPath = path.count - i - 1;
     NSInteger idxViewPath = viewPath.count - i - 1;
@@ -260,7 +228,7 @@ static id<FBSDKNumberParsing> _numberParser;
   if (parent) {
     children = [FBSDKViewHierarchy getChildren:parent];
   } else {
-    UIWindow *window = [FBSDKInternalUtility.sharedUtility findWindow];
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
     if (window) {
       children = @[window];
     } else {

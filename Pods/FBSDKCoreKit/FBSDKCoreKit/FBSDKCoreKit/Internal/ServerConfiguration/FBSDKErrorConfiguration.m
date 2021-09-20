@@ -18,10 +18,8 @@
 
 #import "FBSDKErrorConfiguration.h"
 
-#import "FBSDKCoreKitBasicsImport.h"
-#import "FBSDKGraphRequestProtocol.h"
-#import "FBSDKInternalUtility+Internal.h"
-#import "FBSDKSettings.h"
+#import "FBSDKCoreKit+Internal.h"
+#import "FBSDKErrorRecoveryConfiguration.h"
 
 static NSString *const kErrorCategoryOther = @"other";
 static NSString *const kErrorCategoryTransient = @"transient";
@@ -45,7 +43,7 @@ static NSString *const kErrorCategoryLogin = @"login";
       NSLocalizedStringWithDefaultValue(
         @"ErrorRecovery.OK",
         @"FacebookSDK",
-        [FBSDKInternalUtility.sharedUtility bundleForStrings],
+        [FBSDKInternalUtility bundleForStrings],
         @"OK",
         @"The title of the label to start attempting error recovery"
       );
@@ -53,7 +51,7 @@ static NSString *const kErrorCategoryLogin = @"login";
       NSLocalizedStringWithDefaultValue(
         @"ErrorRecovery.Cancel",
         @"FacebookSDK",
-        [FBSDKInternalUtility.sharedUtility bundleForStrings],
+        [FBSDKInternalUtility bundleForStrings],
         @"Cancel",
         @"The title of the label to decline attempting error recovery"
       );
@@ -61,7 +59,7 @@ static NSString *const kErrorCategoryLogin = @"login";
       NSLocalizedStringWithDefaultValue(
         @"ErrorRecovery.Transient.Suggestion",
         @"FacebookSDK",
-        [FBSDKInternalUtility.sharedUtility bundleForStrings],
+        [FBSDKInternalUtility bundleForStrings],
         @"The server is temporarily busy, please try again.",
         @"The fallback message to display to retry transient errors"
       );
@@ -69,7 +67,7 @@ static NSString *const kErrorCategoryLogin = @"login";
       NSLocalizedStringWithDefaultValue(
         @"ErrorRecovery.Login.Suggestion",
         @"FacebookSDK",
-        [FBSDKInternalUtility.sharedUtility bundleForStrings],
+        [FBSDKInternalUtility bundleForStrings],
         @"Please log into this app again to reconnect your Facebook account.",
         @"The fallback message to display to recover invalidated tokens"
       );
@@ -89,13 +87,13 @@ static NSString *const kErrorCategoryLogin = @"login";
            @"recovery_message" : localizedTransientSuggestion,
            @"recovery_options" : @[localizedOK]},
       ];
-      [self updateWithArray:fallbackArray];
+      [self parseArray:fallbackArray];
     }
   }
   return self;
 }
 
-- (FBSDKErrorRecoveryConfiguration *)recoveryConfigurationForCode:(NSString *)code subcode:(NSString *)subcode request:(id<FBSDKGraphRequest>)request
+- (FBSDKErrorRecoveryConfiguration *)recoveryConfigurationForCode:(NSString *)code subcode:(NSString *)subcode request:(FBSDKGraphRequest *)request
 {
   code = code ?: @"*";
   subcode = subcode ?: @"*";
@@ -112,12 +110,12 @@ static NSString *const kErrorCategoryLogin = @"login";
   return configuration;
 }
 
-- (void)updateWithArray:(NSArray<NSDictionary *> *)array
+- (void)parseArray:(NSArray<NSDictionary *> *)array
 {
   for (NSDictionary *dictionary in [FBSDKTypeUtility arrayValue:array]) {
     [FBSDKTypeUtility dictionary:dictionary enumerateKeysAndObjectsUsingBlock:^(NSString *key, id obj, BOOL *stop) {
       FBSDKGraphRequestError category;
-      NSString *action = [FBSDKTypeUtility coercedToStringValue:dictionary[@"name"]];
+      NSString *action = [FBSDKTypeUtility stringValue:dictionary[@"name"]];
       if ([action isEqualToString:kErrorCategoryOther]) {
         category = FBSDKGraphRequestErrorOther;
       } else if ([action isEqualToString:kErrorCategoryTransient]) {
