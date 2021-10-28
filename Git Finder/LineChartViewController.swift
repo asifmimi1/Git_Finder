@@ -28,7 +28,8 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         yAxis.labelTextColor = .darkGray
         yAxis.axisLineColor = .darkGray
         yAxis.gridLineWidth.round()
-        yAxis.drawGridLinesEnabled = true
+        yAxis.drawGridLinesEnabled = false
+        yAxis.gridLineCap = .round
         
         // xAxis - Bottom
         let xAxis = lineChart.xAxis

@@ -26,7 +26,4 @@ target 'Git Finder' do
   pod "Charts"
   pod "TinyConstraints"
   pod 'FBSDKCoreKit'
-  pod 'FBSDKLoginKit'
-  pod 'FBSDKShareKit'
-  
 end

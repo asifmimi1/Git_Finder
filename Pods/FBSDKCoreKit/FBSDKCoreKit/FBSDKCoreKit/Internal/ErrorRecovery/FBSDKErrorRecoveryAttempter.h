@@ -26,14 +26,14 @@
 
 @class FBSDKErrorRecoveryConfiguration;
 
+NS_ASSUME_NONNULL_BEGIN
+
 NS_SWIFT_NAME(ErrorRecoveryAttempter)
 @interface FBSDKErrorRecoveryAttempter : NSObject<FBSDKErrorRecoveryAttempting>
 
 // can return nil if configuration is not supported.
-+ (instancetype)recoveryAttempterFromConfiguration:(FBSDKErrorRecoveryConfiguration *)configuration;
++ (nullable instancetype)recoveryAttempterFromConfiguration:(FBSDKErrorRecoveryConfiguration *)configuration;
 
 @end
 
-@interface FBSDKErrorRecoveryAttempter (Protected)
-- (void)completeRecovery:(BOOL)didRecover delegate:(id)delegate didRecoverSelector:(SEL)didRecoverSelector contextInfo:(void *)contextInfo;
-@end
+NS_ASSUME_NONNULL_END

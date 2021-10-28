@@ -35,9 +35,9 @@ class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UI
         navigationItem.rightBarButtonItem = editButton
         
         //MARK: Facebook Events
-        Settings.setAdvertiserTrackingEnabled(true)
+//        Settings.setAdvertiserTrackingEnabled(true)
         AppEvents.logEvent(.viewedContent)
-        AppEvents.logEvent(AppEvents.Name(rawValue: "Test_Event_new"), parameters: ["test_event_new": "2"])
+        AppEvents.logEvent(AppEvents.Name(rawValue: "Test_Event_old_ios"), parameters: ["test_event_new": "2"])
         
         //MARK: Firebase Events
         let timestamp = NSDate().timeIntervalSince1970
@@ -120,8 +120,8 @@ class BaseViewController: UIViewController, UIImagePickerControllerDelegate & UI
 //        let goToVideoFeedViewController = storyboard?.instantiateViewController(identifier: "FireworkVideoVC") as? FireworkVideoVC
 //        self.navigationController?.pushViewController(goToVideoFeedViewController!,animated: true)
 
-        let goToVideoFeedViewController = storyboard?.instantiateViewController(identifier: "LineChartViewController") as? LineChartViewController
-        self.navigationController?.pushViewController(goToVideoFeedViewController!,animated: true)
+//        let goToVideoFeedViewController = storyboard?.instantiateViewController(identifier: "LineChartViewController") as? LineChartViewController
+        self.navigationController?.pushViewController(LineChartViewController(),animated: true)
     }
         
     func alamoFireRequest(requestURL: String) {

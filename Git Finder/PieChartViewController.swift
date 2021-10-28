@@ -10,6 +10,11 @@ import Charts
 
 class PieChartViewController: UIViewController {
     
+    class func initVC()->UIViewController {
+        let board = UIStoryboard.init(name: "Landing", bundle: nil)
+        return board.instantiateViewController(withIdentifier: "PieChartViewController")
+    }
+    
     var pieChartView: PieChartView = PieChartView()
     var pieChart = UIView()
     

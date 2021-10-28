@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         ApplicationDelegate.shared.application(application,didFinishLaunchingWithOptions: launchOptions)
         
+        self.window?.rootViewController = UINavigationController(rootViewController: BaseViewController()) 
+        
         FirebaseApp.configure()
         FireworkVideoSDK.initializeSDK()
         window = UIWindow(frame: UIScreen.main.bounds)
