@@ -15,11 +15,14 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         let board = UIStoryboard.init(name: "Landing", bundle: nil)
         return board.instantiateViewController(withIdentifier: "LineChartViewController")
     }
+    var yAxiss : YAxisRenderer?
     
     lazy var lineChartView:LineChartView = {
         let lineChart = LineChartView()
         lineChart.backgroundColor = #colorLiteral(red: 0.05126982182, green: 0.12172658, blue: 0.1982372999, alpha: 1)
         lineChart.rightAxis.enabled = false
+        lineChart.pinchZoomEnabled = false
+        lineChart.doubleTapToZoomEnabled = false
         
         // yAxis - Left
         let yAxis = lineChart.leftAxis
@@ -29,7 +32,6 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         yAxis.axisLineColor = .darkGray
         yAxis.gridLineWidth.round()
         yAxis.drawGridLinesEnabled = false
-        yAxis.gridLineCap = .round
         
         // xAxis - Bottom
         let xAxis = lineChart.xAxis
@@ -64,6 +66,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         
         setup()
     }
+    
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         print(entry)
     }
@@ -76,6 +79,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         set1.lineWidth = 4
         set1.setColor(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1))
         set1.drawHorizontalHighlightIndicatorEnabled = false
+        set1.drawVerticalHighlightIndicatorEnabled = false
         set1.drawValuesEnabled = true
         set1.valueTextColor = .systemGray
         
@@ -141,3 +145,4 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
     ]
     
 }
+
